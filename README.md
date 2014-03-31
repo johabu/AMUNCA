@@ -11,6 +11,13 @@ Dependencies
 A webserver capable of PHP and MySQL as well as CGI applications.
 It is highly recommended to use SSL with this application.
 
+Platforms
+----------
+AMUNCA should work on most systems running an web server with PHP and
+MySQL supported, but it has been tested on GNU/Linux with kernel 3.11
+(x86\_64) running Apache 2.4.6, PHP 5.5.3 and MySQL 5.5
+
+
 Installing
 -----------
 1. To set up the AMUNCA login environment as well as the web gui, copy
@@ -20,9 +27,8 @@ want.
 to your MySQL database.
 3. Open /path/to/frontend/setup.php in a webbrowser and check if everything
 has worked.
-4. Once setup has finished successfully, you can visit 
-/path/to/frontend/index.php and log in as default user "admin" with 
-password "admin".
+4. Once setup has finished successfully, you can log in as default user
+ "admin" with password "admin".
 
 
 Licensing

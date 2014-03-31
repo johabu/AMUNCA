@@ -146,6 +146,26 @@ else {
 	echo "<p>".mysql_error()."</p>";
 	die();
 }
+$sql = "INSERT INTO
+	user_rights
+	(user_id,
+	authority
+	)
+VALUES
+	('".$ID."',
+	'cal_create'
+	)
+";
+if(mysql_query($sql))
+	echo "<p>Right 'cal_create' successfully applied to user 'admin'</p>";
+else {
+	echo "<p>Right 'cal_create' could not be applied to user 'admin'</p>";
+	echo "<h2>Query</h2>\n";
+	echo "<pre>".$sql."</pre>\n";
+	echo "<h2>ERROR</h2>";
+	echo "<p>".mysql_error()."</p>";
+	die();
+}
 
 echo "<h2>Setup finished successfully!</h2>";
 echo "<p>Back to the <a href=\"index.php\">main page</a></p>";

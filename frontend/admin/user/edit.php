@@ -134,11 +134,9 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 		" action=\"admin.php?page=user&action=edit\" ".
 		" method=\"post\" ".
 		" accept-charset=\"ISO-8859-1\">\n";
-		echo "<span>\n".
-		"Username:\n".
-		"</span>\n";
+		echo "<span style=\"font-weight:bold;\" >\nUsername:\n";
 		echo htmlentities($row['user_name'], ENT_QUOTES)."\n";
-		echo "<br />\n";
+		echo "</span><br /><br />\n";
 		echo "<span style=\"font-weight:bold;\" ".
 		" title=\"name@mail.com\">\n".
 		"Email address:\n".
@@ -156,9 +154,9 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 			echo "<input type=\"radio\" name=\"show_email\" value=\"1\"> yes\n";
 			echo "<input type=\"radio\" name=\"show_email\" value=\"0\" checked> no\n";
 		}
-		echo "<input type=\"submit\" name=\"submit\" value=\"Update data\">\n";
+		echo "<br /><input type=\"submit\" name=\"submit\" value=\"Update data\">\n";
 		echo "<input type=\"hidden\" name=\"ID\" value=\"".$_POST['ID']."\">\n";
-		echo "</form>\n";
+		echo "</form><br /><br />\n";
 		
 		//password
 		echo "<form ".
@@ -180,7 +178,7 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 		echo "<br />\n";
 		echo "<input type=\"submit\" name=\"submit\" value=\"Change password\">\n";
 		echo "<input type=\"hidden\" name=\"ID\" value=\"".$_POST['ID']."\">\n";
-		echo "</form>\n";
+		echo "</form><br /><br />\n";
 
 		// rights
 		echo "<form ".
@@ -200,7 +198,7 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 		while($row_rechte = mysql_fetch_assoc($result_rights))
 			$user_rights[] = $row_rechte['authority'];
 		
-		$rights = array('admin','user_manage');
+		$rights = array('admin','user_manage','cal_create');
 		foreach($rights as $right){
 			if(in_array($right, $user_rights))
 				echo "<input type=\"checkbox\" name=\"rights[]\" value=\"".$right."\" checked>\n";
@@ -213,7 +211,7 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 		}
 		echo "<input type=\"submit\" name=\"submit\" value=\"Change rights\">\n";
 		echo "<input type=\"hidden\" name=\"ID\" value=\"".$_POST['ID']."\">\n";
-		echo "</form>\n";
+		echo "</form><br /><br />\n";
 	}
 }
 else {
@@ -242,7 +240,7 @@ else {
 		}
 		echo "</select>\n";
 		echo "<input type=\"submit\" name=\"submit\" value=\"Choose user\">";
-		echo "</form>\n";
+		echo "</form><br /><br />\n";
 	}
 }
 ?>
