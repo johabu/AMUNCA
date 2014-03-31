@@ -4,9 +4,12 @@ include("mysql.php");
 include("functions.php");
 session_start();
 include("autologout.php");
+
 printheader("AMUNCA - My profile");
+echo "<h2>My Profile</h2>";
 if(!isset($_SESSION['user_id'])) {
-	die("You are not logged in.<br />\nPlease log in first.\n");
+	//die("You are not logged in.<br />\nPlease log in first.\n");
+	header("Location: index.php");
 }
 else {
 	// change and update user data
@@ -131,14 +134,14 @@ else {
 	" action=\"".$_SERVER['PHP_SELF']."\" ".
 	" method=\"post\" ".
 	" accept-charset=\"ISO-8859-1\">\n";
-	echo "<span>\n".
-	"User:\n".
+	echo "<span style=\"font-weight: bold;\">\n".
+	"Your username:\n".
 	"</span>\n";
 	echo htmlentities($row['user_name'], ENT_QUOTES)."\n";
 	echo "<br />\n";
 	echo "<span style=\"font-weight:bold;\" ".
 	" title=\"name@mail.com\">\n".
-	"Your email address:\n".
+	"Your email address:<br />\n".
 	"</span>\n";
 	echo "<input type=\"text\" name=\"user_email\" maxlength=\"70\" value=\"".htmlentities($row['user_email'], ENT_QUOTES)."\">\n";
 	echo "<br />\n";
@@ -155,7 +158,7 @@ else {
 	}
 	echo "<br />\n";
 	echo "<input type=\"submit\" name=\"submit\" value=\"Update data\">\n";
-	echo "</form>\n";
+	echo "</form><br /><br />\n";
 
 	echo "<form ".
 	" name=\"user_pswd\" ".
@@ -164,19 +167,19 @@ else {
 	" accept-charset=\"ISO-8859-1\">\n";
 	echo "<span style=\"font-weight:bold;\" ".
 	" title=\"at least 8 characters\">\n".
-	"Old password :\n".
+	"Old password:<br />\n".
 	"</span>\n";
 	echo "<input type=\"password\" name=\"old_user_pswd\">\n";
 	echo "<br />\n";
 	echo "<span style=\"font-weight:bold;\" ".
 	" title=\"min.6\">\n".
-	"New password:\n".
+	"New password:<br />\n".
 	"</span>\n";
 	echo "<input type=\"password\" name=\"user_pswd\">\n";
 	echo "<br />\n";
 	echo "<span style=\"font-weight:bold;\" ".
 	" title=\"min.6\">\n".
-	"Confirm new password:\n".
+	"Confirm new password:<br />\n".
 	"</span>\n";
 	echo "<input type=\"password\" name=\"user_pswdcheck\">\n";
 	echo "<br />\n";

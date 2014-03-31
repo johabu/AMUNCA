@@ -1,39 +1,40 @@
 <?php
-
 error_reporting(E_ALL);
 include("mysql.php");
-
+include("functions.php");
+// start session
 session_start();
-echo "<h1>AMUNCA login area -- Sign up</h1>\n";
+include("autologout.php");
+
+printheader("AMUNCA login");
+
+echo "<h2>Sign up for an AMUNCA account</h2>\n";
 echo "<form ".
 	" name=\"Sign up\" ".
 	" action=\"".$_SERVER['PHP_SELF']."\" ".
 	" method=\"post\" ".
 	" accept-charset=\"ISO-8859-1\">\n";
-	echo "<span style=\"font-weight:bold;\" ".
-	" title=\"min.4\nmax.32\na-z A-Z 0-9 _\">\n".
-	"Username:\n".
+	echo "<span style=\"font-weight:bold;\"> ".
+	"Username:<br />\n".
 	"</span>\n";
-	echo "<input type=\"text\" name=\"user_name\" maxlength=\"32\">\n";
-	echo "<br />\n";
-	echo "<span style=\"font-weight:bold;\" ".
-	" title=\"min.8\">\n".
-	"Password:\n".
+	echo "<input type=\"text\" name=\"user_name\" value=\"\" maxlength=\"32\">\n";
+	echo "<br /><span style=\"font-size: small;\">Your username must consist of 4-32 characters</span><br /><br />\n";
+	echo "<span style=\"font-weight:bold;\"> ".
+	"Password:<br />\n".
 	"</span>\n";
-	echo "<input type=\"password\" name=\"user_pswd\">\n";
-	echo "<br />\n";
-	echo "<span style=\"font-weight:bold;\" ".
-	" title=\"min.6\">\n".
-	"Repeat password:\n".
+	echo "<input type=\"password\" name=\"user_pswd\" value=\"\">\n";
+        echo "<br /><span style=\"font-size: small;\">Your password must be at least 8 characters long</span><br /><br />\n";
+	echo "<span style=\"font-weight:bold;\"> ".
+	"Confirm password:<br />\n".
 	"</span>\n";
-	echo "<input type=\"password\" name=\"user_pswdcheck\">\n";
-	echo "<br />\n";
+	echo "<input type=\"password\" name=\"user_pswdcheck\" value=\"\" >\n";
+        echo "<br /><span style=\"font-size: small;\">Please confirm your password</span><br /><br />\n";
 	echo "<span style=\"font-weight:bold;\" ".
 	" title=\"name@mail.com\">\n".
-	"Email address:\n".
+	"Email address:<br />\n".
 	"</span>\n";
-	echo "<input type=\"text\" name=\"user_email\" maxlength=\"70\">\n";
-	echo "<br />\n";
+	echo "<input type=\"text\" name=\"user_email\" maxlength=\"70\" value=\"\">\n";
+        echo "<br /><span style=\"font-size: small;\">Enter your email address here</span><br /><br />\n";
 	echo "<span>\n".
 	"Show your email to others:\n".
 	"</span>\n";
@@ -134,5 +135,6 @@ if (isset($_POST['submit']) AND $_POST['submit']=='Sign up'){
 		"You can now log in with your data.\n<br />";
 	}
 }
+printfooter();
 
 ?>

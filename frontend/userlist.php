@@ -1,8 +1,17 @@
 <?php
 error_reporting(E_ALL);
 include("mysql.php");
-
+include("functions.php");
 session_start();
+include("autologout.php");
+
+printheader("AMUNCA - userlist");
+echo "<h2>List of AMUNCA users</h2>";
+if(!isset($_SESSION['user_id'])) {
+        //die("You are not logged in.<br />\nPlease log in first.\n");
+        header("Location: index.php");
+}
+else {
 
 echo "<table>";
 echo " <tr>\n";
@@ -10,13 +19,13 @@ echo "  <td>\n";
 echo "Username\n";
 echo "  </td>\n";
 echo "  <td>\n";
-echo "Date of registration\n";
+echo "Date of registration&nbsp;&nbsp;&nbsp;\n";
 echo "  </td>\n";
 echo "  <td>\n";
 echo "Last login\n";
 echo "  </td>\n";
 echo "  <td>\n";
-echo " \n";
+echo "Status \n";
 echo "  </td>\n";
 echo " </tr>\n";
 
@@ -49,7 +58,7 @@ while ($row = mysql_fetch_assoc($result)) {
 	echo $row['regdate']."\n";
 	echo "  </td>\n";
 	echo "  <td>\n";
-	echo date('d.m.Y H:i \U\h\r', $row['last_login'])."\n";
+	echo date('d/m/Y  H:i', $row['last_login'])."&nbsp;&nbsp;&nbsp;\n";
 	echo "  </td>\n";
 	echo "  <td>\n";
 	echo $online;
@@ -57,4 +66,6 @@ while ($row = mysql_fetch_assoc($result)) {
 	echo " </tr>\n";
 }
 echo "</table>";
+}
+printfooter();
 ?>

@@ -6,7 +6,18 @@ function printheader($title) {
 	"<link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\">\n".
 	"</head>\n<body>\n".
 	"<div id=\"main\">\n";
-	echo "<div id=\"topmenu\">\n<span id=\"login\">";
+	echo "<div id=\"topmenu\">\n".
+	"<span id=\"calendarimg\">\n".
+	"<a href=\"index.php\">\n".
+	"<img height=\"40px\" src=\"img/calendar_A.svg\"> ".
+	"<img height=\"40px\" src=\"img/calendar_M.svg\"> ".
+	"<img height=\"40px\" src=\"img/calendar_U.svg\"> ".
+	"<img height=\"40px\" src=\"img/calendar_N.svg\"> ".
+	"<img height=\"40px\" src=\"img/calendar_C.svg\"> ".
+	"<img height=\"40px\" src=\"img/calendar_A.svg\"> ".
+	"</a>\n".
+	"</span>\n".
+	"<span id=\"login\">";
 	$sql = "SELECT
 		user_name
 		FROM
@@ -22,11 +33,20 @@ function printheader($title) {
 		echo "<a href=\"login.php\">Log in</a> | <a href=\"signup.php\">Sign up</a>\n";
 	}
 	echo "</span></div>\n<div id=\"menu\">\n";
-	echo "<br /><a href=\"index.php\">AMUNCA main page</a><br /><br />".
-	"<a href=\"setup.php\">Setup AMUNCA</a><br /><br />".
-	"<a href=\"userlist.php\">Userlist</a><br /><br />".
-	"<a href=\"admin/index.php\">admin</a><br /><br /><br />\n".
-	"</div><div id=\"content\">\n";
+	if(!isset($_SESSION['user_id'])) {
+		echo "<br />&nbsp;<a href=\"index.php\">Main page</a><br />\n";
+	} else {
+		if(!isset($_SESSION['rights']) OR !in_array('admin', $_SESSION['rights'])) {
+			echo "<br />&nbsp;<a href=\"index.php\">Main page</a><br />\n";
+			echo "<br />&nbsp;<a href=\"userlist.php\">Userlist</a><br />\n";
+		} else {
+			echo "<br />&nbsp;<a href=\"index.php\">Main page</a><br />\n";
+                        echo "<br />&nbsp;<a href=\"userlist.php\">Userlist</a><br />\n";
+			echo "<br />&nbsp;<a href=\"admin/admin.php\">Administration</a><br />\n";
+                        echo "<br />&nbsp;<a href=\"setup.php\">Setup</a><br />\n";
+		}
+	}
+	echo "</div><div id=\"content\">\n";
 }
 
 function printfooter() {

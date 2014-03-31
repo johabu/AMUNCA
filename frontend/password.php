@@ -1,14 +1,20 @@
 <?php
 error_reporting(E_ALL);
 include("mysql.php");
+include("functions.php");
 session_start();
+include("autologout.php");
+
+printheader("I forgot my AMUNCA password");
+echo "<h2>I forgot my AMUNCA password</h2>".
+"Please enter your username in the field below and you will get a new password.<br />";
 
 echo "<form ".
 " name=\"user_pswd\" ".
 " action=\"".$_SERVER['PHP_SELF']."\" ".
 " method=\"post\" ".
 " accept-charset=\"ISO-8859-1\">\n";
-echo "Username:\n";
+echo "<br />Your username:<br />\n";
 echo "<input type=\"text\" name=\"user_name\" maxlength=\"32\">\n";
 echo "<br />\n";
 echo "<input type=\"submit\" name=\"submit\" value=\"Send\">\n";
@@ -72,4 +78,5 @@ if(isset($_POST['submit']) AND $_POST['submit']=='Send'){
 		}
 	}
 }
+printfooter();
 ?>

@@ -5,7 +5,7 @@
 
     session_start();
     include("autologout.php");
-
+    printheader("Log out");
 
     // log out user
     doLogout();
@@ -15,4 +15,5 @@
     session_destroy();
     echo "You logged out successfully.<br /><a href=\"index.php\">Main page</a>\n";
     header("Location: index.php");
+    printfooter();
 ?>
