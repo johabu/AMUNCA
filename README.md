@@ -11,6 +11,20 @@ Dependencies
 A webserver capable of PHP and MySQL as well as CGI applications.
 It is highly recommended to use SSL with this application.
 
+Installing
+-----------
+1. To set up the AMUNCA login environment as well as the web gui, copy
+the directory "frontend" to your webserver. You can rename it if you
+want.
+2. Open "mysql.php" in a text editor and insert correct login information
+to your MySQL database.
+3. Open /path/to/frontend/setup.php in a webbrowser and check if everything
+has worked.
+4. Once setup has finished successfully, you can visit 
+/path/to/frontend/index.php and log in as default user "admin" with 
+password "admin".
+
+
 Licensing
 ----------
 

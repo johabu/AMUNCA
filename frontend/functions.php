@@ -42,8 +42,6 @@ function printheader($title) {
 		} else {
 			echo "<br />&nbsp;<a href=\"index.php\">Main page</a><br />\n";
                         echo "<br />&nbsp;<a href=\"userlist.php\">Userlist</a><br />\n";
-			echo "<br />&nbsp;<a href=\"admin/admin.php\">Administration</a><br />\n";
-                        echo "<br />&nbsp;<a href=\"setup.php\">Setup</a><br />\n";
 		}
 	}
 	echo "</div><div id=\"content\">\n";

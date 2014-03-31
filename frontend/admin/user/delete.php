@@ -81,7 +81,7 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 		echo "</table>\n";
 		
 		echo "<form ".
-		"action=\"index.php?section=admin&page=user&action=delete\" ".
+		"action=\"admin.php?section=admin&page=user&action=delete\" ".
 		"method=\"post\">\n";
 		echo "<input type=\"hidden\" name=\"ID\" value=\"".$_POST['ID']."\">\n";
 		echo "<input type=\"submit\" name=\"submit\" value=\"Delete user\">\n";
@@ -102,7 +102,7 @@ else {
 		echo "There are no users stored in the database\n";
 	else {
 		echo "<form ".
-		" action=\"index.php?page=user&action=delete\" ".
+		" action=\"admin.php?page=user&action=delete\" ".
 		" method=\"post\" ".
 		" accept-charset=\"ISO-8859-1\">";
 		echo "<select name=\"ID\">\n";

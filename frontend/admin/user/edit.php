@@ -131,7 +131,7 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 		$row = mysql_fetch_assoc($result);
 		echo "<form ".
 		" name=\"Data\" ".
-		" action=\"index.php?page=user&action=edit\" ".
+		" action=\"admin.php?page=user&action=edit\" ".
 		" method=\"post\" ".
 		" accept-charset=\"ISO-8859-1\">\n";
 		echo "<span>\n".
@@ -163,7 +163,7 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 		//password
 		echo "<form ".
 		" name=\"user_pswd\" ".
-		" action=\"index.php?page=user&action=edit\" ".
+		" action=\"admin.php?page=user&action=edit\" ".
 		" method=\"post\" ".
 		" accept-charset=\"ISO-8859-1\">\n";
 		echo "<span style=\"font-weight:bold;\" ".
@@ -185,7 +185,7 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 		// rights
 		echo "<form ".
 		" name=\"rights\" ".
-		" action=\"index.php?page=user&action=edit\" ".
+		" action=\"admin.php?page=user&action=edit\" ".
 		" method=\"post\" ".
 		" accept-charset=\"ISO-8859-1\">\n";
 		$sql = "SELECT
@@ -230,7 +230,7 @@ else {
 		echo "There are no users stored in the database\n";
 	else {
 		echo "<form ".
-		" action=\"index.php?page=user&action=edit\" ".
+		" action=\"admin.php?page=user&action=edit\" ".
 		" method=\"post\" ".
 		" accept-charset=\"ISO-8859-1\">";
 		echo "<select name=\"ID\">\n";

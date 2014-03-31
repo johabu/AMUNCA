@@ -1,9 +1,31 @@
 <?php
 error_reporting(E_ALL);
 include("mysql.php");
+echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n\"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n".
+"<html>\n<head>\n<title>".$title."</title>\n".
+"<meta http-equiv=\"content-type\" content=\"text/html; charset=ISO-8859-1\">\n".
+"<link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\">\n".
+"</head>\n<body>\n".
+"<div id=\"main\">\n";
+echo "<div id=\"topmenu\">\n".
+"<span id=\"calendarimg\">\n".
+"<a href=\"index.php\">\n".
+"<img height=\"40px\" src=\"img/calendar_A.svg\"> ".
+"<img height=\"40px\" src=\"img/calendar_M.svg\"> ".
+"<img height=\"40px\" src=\"img/calendar_U.svg\"> ".
+"<img height=\"40px\" src=\"img/calendar_N.svg\"> ".
+"<img height=\"40px\" src=\"img/calendar_C.svg\"> ".
+"<img height=\"40px\" src=\"img/calendar_A.svg\"> ".
+"</a>\n".
+"</span>\n".
+"<span id=\"login\">";
+echo "<a href=\"login.php\">Log in</a> | <a href=\"signup.php\">Sign up</a>\n";
+echo "</span></div>\n<div id=\"menu\">\n";
+echo "<br />&nbsp;<a href=\"index.php\">Main page</a><br />\n";
+echo "</div><div id=\"content\">\n";
 echo "<h1>AMUNCA login area -- Setup</h1>";
 
-$sql = "DROP TABLE IF EXISTS users";
+//$sql = "DROP TABLE IF EXISTS users";
 @mysql_query($sql);
 $sql = 'CREATE TABLE `users` ('
 	. ' `ID` INT AUTO_INCREMENT NOT NULL, '
@@ -30,7 +52,7 @@ else {
 	die();
 }
 
-$sql = "DROP TABLE IF EXISTS user_rights";
+//$sql = "DROP TABLE IF EXISTS user_rights";
 @mysql_query($sql);
 $sql = 'CREATE TABLE `user_rights` ('
 	. ' `ID` INT AUTO_INCREMENT NOT NULL, '
@@ -127,5 +149,5 @@ else {
 
 echo "<h2>Setup finished successfully!</h2>";
 echo "<p>Back to the <a href=\"index.php\">main page</a></p>";
-
+echo "</div>\n</body>\n</html>";
 ?>
