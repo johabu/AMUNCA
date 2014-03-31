@@ -14,7 +14,7 @@ h2 { color: #003d7a }
 #calendarimg {
 	position:absolute;
 	top:5px;
-	left:5px,
+	left:5px;
 }
 
 #menu {
@@ -39,6 +39,9 @@ h2 { color: #003d7a }
 	top: 50px;
 }
 
+.error {
+	color: red;
+}
 
 a:link { text-decoration:none; font-weight:bold; color:#292b2c; }
 a:visited { text-decoration:none; font-weight:bold; color:#292b2c; }

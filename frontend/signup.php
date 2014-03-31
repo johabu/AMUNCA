@@ -109,7 +109,7 @@ if (isset($_POST['submit']) AND $_POST['submit']=='Sign up'){
 	if(count($errors)){
 		echo "Your account could not be created:<br />\n";
 		foreach($errors as $error)
-			echo $error."<br />\n";
+			echo "<span class=\"error\">".$error."</span><br />\n";
 	}
 	else {
 		// insert new user into database

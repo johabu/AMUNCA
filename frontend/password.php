@@ -45,7 +45,7 @@ if(isset($_POST['submit']) AND $_POST['submit']=='Send'){
 		echo "Your password could not be sent.<br />\n".
 		"<br />\n";
 		foreach($errors as $error)
-			echo $error."<br />\n";
+			echo "<span class=\"error\">".$error."</span><br />\n";
 		echo "<br />\n";
 	}
 	else {
@@ -74,7 +74,8 @@ if(isset($_POST['submit']) AND $_POST['submit']=='Send'){
 		}
 		//error while sending mail:
 		else{
-			echo "An error occured while sending an email with your new password. Please contact the system administrator.<br />\n";
+			echo "<span class=\"error\">An error occured while sending an email with your new password.".
+			"Please contact the system administrator.</span><br />\n";
 		}
 	}
 }

@@ -102,7 +102,7 @@ else {
 			echo "Your password could not be changed.<br />\n".
 			"<br />\n";
 			foreach($errors as $error)
-				echo $error."<br />\n";
+				echo "<span class=\"error\">".$error."</span><br />\n";
 			echo "<br />\n";
 		}
 		else{

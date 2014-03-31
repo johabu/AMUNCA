@@ -48,7 +48,7 @@ if(isset($_POST['submit']) AND $_POST['submit']=='Log in'){
 		header("Location: index.php");
 	}
 	else{
-		echo "Username or password entered is not correct. Please retry.<br />\n";
+		echo "<span class=\"error\">Username or password entered is not correct. Please retry.</span><br />\n";
 	}
 }
 printfooter();

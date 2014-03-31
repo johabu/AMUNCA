@@ -38,10 +38,10 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 				$errors[]= "This email address is already taken.";
 		}
 		if(count($errors)){
-			echo "Data could not be changed.<br />\n".
+			echo "<span class=\"error\">Data could not be changed.</span><br />\n".
 			"<br />\n";
 			foreach($errors as $error)
-				echo $error."<br />\n";
+				echo "<span class=\"error\">".$error."</span><br />\n";
 		}
 		else{
 			$sql = "UPDATE
@@ -73,10 +73,10 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 				$errors[]= "Confirmation of new password failed.";
 		}
 		if(count($errors)){
-			echo "The new password could not be changed.<br />\n".
+			echo "<span class=\"error\">The new password could not be changed.</span><br />\n".
 			"<br />\n";
 			foreach($errors as $error)
-				echo $error."<br />\n";
+				echo "<span class=\"error\">".$error."</span><br />\n";
 		}
 		else{
 			$sql = "UPDATE
