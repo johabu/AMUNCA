@@ -72,6 +72,26 @@ else {
 	die();
 }
 
+@mysql_query($sql);
+$sql = 'CREATE TABLE `calendars` ('
+        . ' `ID` INT AUTO_INCREMENT NOT NULL, '
+        . ' `cal_name` VARCHAR(100) NOT NULL, '
+        . ' `cal_desc` VARCHAR(500) NOT NULL, '
+        . ' PRIMARY KEY (`ID`),'
+	. ' UNIQUE (`cal_name`)'
+        . ' )';
+
+if(mysql_query($sql))
+        echo "<p>Table 'calendars' sucessfully created</p>";
+else {
+        echo "<p>Table 'calendar' could no be created.</p>";
+        echo "<h2>Query</h2>\n";
+        echo "<pre>".$sql."</pre>\n";
+        echo "<h2>ERROR</h2>";
+        echo "<p>".mysql_error()."</p>";
+        die();
+}
+
 $sql = "INSERT INTO
 	users
 	(user_name,
