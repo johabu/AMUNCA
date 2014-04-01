@@ -68,6 +68,17 @@ if(!isset($_SESSION['user_id'])) {
 				echo "<span class=\"error\">".$error."</span><br />\n";
 		} else {		
 			$sql = "INSERT INTO
+				user_rights
+				(user_id,
+				authority
+				)
+				VALUES
+				('".$_SESSION['user_id']."',
+				'".mysql_real_escape_string(trim($_POST['cal_name']))."'
+				)
+			";
+			mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
+			$sql = "INSERT INTO
 				calendars
 				(cal_name,
 				cal_desc
