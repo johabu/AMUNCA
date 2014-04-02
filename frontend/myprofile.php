@@ -6,6 +6,7 @@ session_start();
 include("autologout.php");
 
 printheader("AMUNCA - My profile");
+printmenu();
 echo "<h2>My Profile</h2>";
 if(!isset($_SESSION['user_id'])) {
 	//die("You are not logged in.<br />\nPlease log in first.\n");

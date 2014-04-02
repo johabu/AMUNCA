@@ -6,6 +6,7 @@
     session_start();
     include("autologout.php");
     printheader("Log out");
+    printmenu();
 
     // log out user
     doLogout();

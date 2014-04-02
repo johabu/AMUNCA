@@ -7,6 +7,7 @@ session_start();
 include("autologout.php");
 
 printheader("AMUNCA main page");
+printmenu();
 echo "<h1>Welcome to AMUNCA multi user network calendar application</h1>";
 echo "This is the main page of AMUNCA.<br /> AMUNCA (\"AMUNCA Multi User Network Calendar Application\") is an attempt ".
 "to create an easy to use calendar administration application.<br /> By ".
@@ -17,7 +18,7 @@ if(isset($_SESSION['user_id'])) {
 	echo "<br />Look at the <a href=\"userlist.php\">userlist</a> to see which users are logged in.<br />\n";
 }
 if(isset($_SESSION['rights']) OR in_array('admin', $_SESSION['rights'])) {
-	echo "<br />Since you have administrator rights, your are allowed to enter the <a href=\"admin/admin.php\">administration area</a>.<br />\n";
+	echo "<br />Since you have administrator rights, your are allowed to enter the <a href=\"admin/\">administration area</a>.<br />\n";
 }
 if(isset($_SESSION['rights']) OR in_array('cal_create', $_SESSION['rights'])) {
 	echo "<br /><a href=\"createcal.php\">Create</a> a new calendar.<br />\n";

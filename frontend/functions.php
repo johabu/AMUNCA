@@ -32,16 +32,38 @@ function printheader($title) {
 	} else {
 		echo "<a href=\"login.php\">Log in</a> | <a href=\"signup.php\">Sign up</a>\n";
 	}
-	echo "</span></div>\n<div id=\"menu\">\n";
+	echo "</span></div>\n";
+}
+function printmenu() {
+	echo "<div id=\"menu\">\n";
 	if(!isset($_SESSION['user_id'])) {
 		echo "<br />&nbsp;<a href=\"index.php\">Main page</a><br />\n";
 	} else {
-		if(!isset($_SESSION['rights']) OR !in_array('admin', $_SESSION['rights'])) {
-			echo "<br />&nbsp;<a href=\"index.php\">Main page</a><br />\n";
-			echo "<br />&nbsp;<a href=\"userlist.php\">Userlist</a><br />\n";
-		} else {
-			echo "<br />&nbsp;<a href=\"index.php\">Main page</a><br />\n";
-                        echo "<br />&nbsp;<a href=\"userlist.php\">Userlist</a><br />\n";
+		echo "<br />&nbsp;<a href=\"index.php\">Main page</a><br />\n";
+		echo "<br />&nbsp;<a href=\"userlist.php\">Userlist</a><br />\n";
+		echo "<br />&nbsp;<a href=\"calendars.php\">Show calendars</a><br />\n";
+		if(isset($_SESSION['rights']) OR !in_array('admin', $_SESSION['rights'])) {
+			echo "<br />&nbsp;<a href=\"admin\">Administration</a><br />\n";
+		}
+		if(isset($_SESSION['rights']) OR !in_array('cal_create', $_SESSION['rights'])) {
+			echo "<br />&nbsp;<a href=\"createcal.php\">Create calendars</a><br />\n";
+		}
+	}
+	echo "</div><div id=\"content\">\n";
+}
+function printadminmenu() {
+	echo "<div id=\"menu\">\n";
+	if(!isset($_SESSION['user_id'])) {
+		echo "<br />&nbsp;<a href=\"../index.php\">Main page</a><br />\n";
+	} else {
+		echo "<br />&nbsp;<a href=\"../index.php\">Main page</a><br />\n";
+		echo "<br />&nbsp;<a href=\"../userlist.php\">Userlist</a><br />\n";
+		echo "<br />&nbsp;<a href=\"../calendars.php\">Show calendars</a><br />\n";
+		if(isset($_SESSION['rights']) OR !in_array('admin', $_SESSION['rights'])) {
+			echo "<br />&nbsp;<a href=\"index.php\">Administration</a><br />\n";
+		}
+		if(isset($_SESSION['rights']) OR !in_array('cal_create', $_SESSION['rights'])) {
+			echo "<br />&nbsp;<a href=\"../createcal.php\">Create calendars</a><br />\n";
 		}
 	}
 	echo "</div><div id=\"content\">\n";

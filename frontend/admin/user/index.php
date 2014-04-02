@@ -7,20 +7,20 @@ if(!in_array('user_manage', $_SESSION['rights']))
 switch(isset($_GET['action'])?$_GET['action']:''){
 	case 'edit':
 		include 'user/edit.php';
-		echo "Back to the <a href=\"admin.php?page=user\">user administration panel</a>\n";
+		echo "Back to the <a href=\"index.php?page=user\">user administration panel</a>\n";
 		break;
 		
 	case 'delete':
 		include 'user/delete.php';
-		echo "Back to the <a href=\"admin.php?page=user\">user administration panel</a>\n";
+		echo "Back to the <a href=\"index.php?page=user\">user administration panel</a>\n";
 		break;
 		
 	default:
 		$actions = array('edit' => 'Edit User', 'delete' => 'Delete User');
                 foreach($actions as $action => $name)
-			echo "<a href=\"admin.php?page=user&action=".$action."\">".$name."</a><br />\n";
+			echo "<a href=\"index.php?page=user&action=".$action."\">".$name."</a><br />\n";
 		break;
 }
 
-echo "<p>Back to the <a href=\"admin.php\">main administration panel</a></p>";
+echo "<p>Back to the <a href=\"index.php\">main administration panel</a></p>";
 ?>

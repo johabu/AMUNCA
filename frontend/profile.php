@@ -6,7 +6,7 @@ session_start();
 include("autologout.php");
 
 printheader("AMUNCA profile");
-
+printmenu();
 // check $_GET parameters
 if(!isset($_GET['id'])) {
 	echo "No user chosen.<br />\n".

@@ -7,6 +7,7 @@ session_start();
 include("autologout.php");
 
 printheader("AMUNCA login");
+printmenu();
 
 echo "<h2>Sign up for an AMUNCA account</h2>\n";
 echo "<form ".

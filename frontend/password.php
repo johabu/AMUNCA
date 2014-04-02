@@ -6,6 +6,7 @@ session_start();
 include("autologout.php");
 
 printheader("I forgot my AMUNCA password");
+printmenu();
 echo "<h2>I forgot my AMUNCA password</h2>".
 "Please enter your username in the field below and you will get a new password.<br />";
 
