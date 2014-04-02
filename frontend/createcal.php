@@ -12,7 +12,7 @@ if(!isset($_SESSION['user_id'])) {
         //die("You are not logged in.<br />\nPlease log in first.\n");
         header("Location: index.php");
 } elseif (!isset($_SESSION['rights']) OR !in_array('cal_create', $_SESSION['rights'])) {
-	echo "You are not allowed to create new calendars. Please return to the <a href=\"index.php\">main page</a>";
+	echo "You are not allowed to create new calendars.";
 } else {
 	echo "<form ".
 	" name=\"Create calendar\" ".

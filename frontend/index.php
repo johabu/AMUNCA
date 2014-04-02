@@ -14,15 +14,17 @@ echo "This is the main page of AMUNCA.<br /> AMUNCA (\"AMUNCA Multi User Network
 "access through the web browser it is platform independent. Another ".
 "feature of AMUNCA are multi-user calendars which allow users <br />to ".
 "harmonize their arrangements easily.<br /><br />";
-if(isset($_SESSION['user_id'])) {
+if(!isset($_SESSION['user_id'])) {
+	
+} else {
 	echo "<br />Look at the <a href=\"userlist.php\">userlist</a> to see which users are logged in.<br />\n";
+	if(in_array('admin', $_SESSION['rights'])) {
+		echo "<br />Since you have administrator rights, your are allowed to enter the <a href=\"admin/\">administration area</a>.<br />\n";
+	}
+	if(in_array('cal_create', $_SESSION['rights'])) {
+		echo "<br /><a href=\"createcal.php\">Create</a> a new calendar.<br />\n";
+	}
+	echo "<br /><a href=\"calendars.php\">Show calendars</a> in this database.<br />\n";
 }
-if(isset($_SESSION['rights']) OR in_array('admin', $_SESSION['rights'])) {
-	echo "<br />Since you have administrator rights, your are allowed to enter the <a href=\"admin/\">administration area</a>.<br />\n";
-}
-if(isset($_SESSION['rights']) OR in_array('cal_create', $_SESSION['rights'])) {
-	echo "<br /><a href=\"createcal.php\">Create</a> a new calendar.<br />\n";
-}
-echo "<br /><a href=\"calendars.php\">Show calendars</a> in this database.<br />\n";
 printfooter();
 ?>

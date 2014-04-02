@@ -10,7 +10,7 @@ printadminmenu();
 echo "<h2>AMUNCA Administration panel</h2>\n";
 // check if user has right to enter administration area
 if(!isset($_SESSION['rights']) OR !in_array('admin', $_SESSION['rights']))
-	die("You are not allowed to enter this page!<br />Please return to the <a href=\"index.php\">Main page</a>\n");
+	die("You are not allowed to enter this page!<br />\n");
 
 // create array
 $page = array();

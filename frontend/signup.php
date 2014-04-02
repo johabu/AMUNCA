@@ -131,9 +131,25 @@ if (isset($_POST['submit']) AND $_POST['submit']=='Sign up'){
 			)
 		";
 		mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
+		$sql = "SELECT
+		LAST_INSERT_ID()
+		";
+		$result = mysql_query($sql);
+		$ID = mysql_result($result,0);
+		$sql = "INSERT INTO
+			user_rights
+			(user_id,
+			authority
+			)
+		VALUES
+			('".$ID."',
+			'cal_create'
+			)
+		";
+		mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
 		echo "Thank you!\n<br />".
 		"Your account has been created successfully.\n<br />".
-		"You can now log in with your data.\n<br />";
+		"You can now <a href=\"login.php\">log in<a/> with your data.\n<br />";
 	}
 }
 printfooter();
