@@ -42,11 +42,11 @@ function printmenu() {
 		echo "<br />&nbsp;<a href=\"index.php\">Main page</a><br />\n";
 		echo "<br />&nbsp;<a href=\"userlist.php\">Userlist</a><br />\n";
 		echo "<br />&nbsp;<a href=\"calendars.php\">Show calendars</a><br />\n";
-		if(isset($_SESSION['rights']) OR !in_array('admin', $_SESSION['rights'])) {
-			echo "<br />&nbsp;<a href=\"admin\">Administration</a><br />\n";
-		}
 		if(isset($_SESSION['rights']) OR !in_array('cal_create', $_SESSION['rights'])) {
 			echo "<br />&nbsp;<a href=\"createcal.php\">Create calendars</a><br />\n";
+		}
+		if(isset($_SESSION['rights']) OR !in_array('admin', $_SESSION['rights'])) {
+			echo "<br />&nbsp;<a href=\"admin\">Administration</a><br />\n";
 		}
 	}
 	echo "</div><div id=\"content\">\n";
@@ -59,11 +59,11 @@ function printadminmenu() {
 		echo "<br />&nbsp;<a href=\"../index.php\">Main page</a><br />\n";
 		echo "<br />&nbsp;<a href=\"../userlist.php\">Userlist</a><br />\n";
 		echo "<br />&nbsp;<a href=\"../calendars.php\">Show calendars</a><br />\n";
-		if(isset($_SESSION['rights']) OR !in_array('admin', $_SESSION['rights'])) {
-			echo "<br />&nbsp;<a href=\"index.php\">Administration</a><br />\n";
-		}
 		if(isset($_SESSION['rights']) OR !in_array('cal_create', $_SESSION['rights'])) {
 			echo "<br />&nbsp;<a href=\"../createcal.php\">Create calendars</a><br />\n";
+		}
+		if(isset($_SESSION['rights']) OR !in_array('admin', $_SESSION['rights'])) {
+			echo "<br />&nbsp;<a href=\"index.php\">Administration</a><br />\n";
 		}
 	}
 	echo "</div><div id=\"content\">\n";

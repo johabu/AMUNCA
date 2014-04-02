@@ -6,6 +6,7 @@ session_start();
 include("autologout.php");
 
 printheader("AMUNCA - create a calendar");
+printmenu();
 echo "<h2>Create a new AMUNCA calendar</h2>";
 if(!isset($_SESSION['user_id'])) {
         //die("You are not logged in.<br />\nPlease log in first.\n");
