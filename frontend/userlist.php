@@ -15,19 +15,19 @@ if(!isset($_SESSION['user_id'])) {
 }
 else {
 
-echo "<table>";
+echo "<table width=\"50%\">\n";
 echo " <tr>\n";
-echo "  <td>\n";
-echo "Username\n";
+echo "  <td>";
+echo "Username";
 echo "  </td>\n";
-echo "  <td>\n";
-echo "Date of registration&nbsp;&nbsp;&nbsp;\n";
+echo "  <td>";
+echo "Date of registration&nbsp;&nbsp;&nbsp;";
 echo "  </td>\n";
-echo "  <td>\n";
-echo "Last login\n";
+echo "  <td>";
+echo "Last login";
 echo "  </td>\n";
-echo "  <td>\n";
-echo "Status \n";
+echo "  <td>";
+echo "Status ";
 echo "  </td>\n";
 echo " </tr>\n";
 

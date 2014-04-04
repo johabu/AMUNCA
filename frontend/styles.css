@@ -37,6 +37,9 @@ h2 { color: #003d7a }
 	position:absolute;
 	left: 150px;
 	top: 50px;
+	width: -moz-calc(100% - 150px);
+        width: -webkit-calc(100% - 150px);
+        width: calc(100% - 150px);
 }
 
 .error {

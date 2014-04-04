@@ -83,11 +83,15 @@ if(!isset($_SESSION['user_id'])) {
 			$sql = "INSERT INTO
 				calendars
 				(cal_name,
-				cal_desc
+				cal_desc,
+				creation_date,
+				creator_id
 				)
 			VALUES
 				('".mysql_real_escape_string(trim($_POST['cal_name']))."',
-				'".mysql_real_escape_string(trim($_POST['cal_desc']))."'
+				'".mysql_real_escape_string(trim($_POST['cal_desc']))."',
+				CURDATE(),
+				'".$_SESSION['user_id']."'
 				)
 			";
 			mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());

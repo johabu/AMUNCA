@@ -77,6 +77,8 @@ $sql = 'CREATE TABLE `calendars` ('
         . ' `ID` INT AUTO_INCREMENT NOT NULL, '
         . ' `cal_name` VARCHAR(100) NOT NULL, '
         . ' `cal_desc` VARCHAR(500) NOT NULL, '
+	. ' `creation_date` DATE NULL, '
+	. ' `creator_id` INT NOT NULL, '
         . ' PRIMARY KEY (`ID`),'
 	. ' UNIQUE (`cal_name`)'
         . ' )';
