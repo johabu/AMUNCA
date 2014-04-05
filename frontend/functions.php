@@ -100,15 +100,17 @@ function doLogout() {
 	if(isset($_COOKIE['autologin']))
 		setcookie("autologin", "", time()-60*60);
 	// and session id
-	$sql = "UPDATE
-		users
-		SET
-		session_id = NULL,
-		autologin = NULL
-		WHERE
-		ID = '".$_SESSION['user_id']."'
-	";
-	mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
+	if(isset($_COOKIE['autologin'])) {
+		$sql = "UPDATE
+			users
+			SET
+			session_id = NULL,
+			autologin = NULL
+			WHERE
+			ID = '".$_SESSION['user_id']."'
+		";
+		mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
+	}
 }
 
 // returns rights of a user
