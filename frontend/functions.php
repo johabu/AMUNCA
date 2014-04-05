@@ -18,19 +18,19 @@ function printheader($title) {
 	"</a>\n".
 	"</span>\n".
 	"<span id=\"login\">";
-	$sql = "SELECT
-		user_name
-		FROM
-		users
-		WHERE
-		ID = '".mysql_real_escape_string($_SESSION['user_id'])."'
-	";
-	$result = mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
-	$row = mysql_fetch_assoc($result);
-	if ($row['user_name'] != "") {
-		echo "<a title=\"my profile\" href=\"myprofile.php\">".$row['user_name']."</a> | <a href=\"logout.php\">Log out</a>\n";
-	} else {
+	if(!isset($_SESSION['user_id'])) {
 		echo "<a href=\"login.php\">Log in</a> | <a href=\"signup.php\">Sign up</a>\n";
+	} else {
+		$sql = "SELECT
+			user_name
+			FROM
+			users
+			WHERE
+			ID = '".mysql_real_escape_string($_SESSION['user_id'])."'
+		";
+		$result = mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
+		$row = mysql_fetch_assoc($result);
+		echo "<a title=\"my profile\" href=\"myprofile.php\">".$row['user_name']."</a> | <a href=\"logout.php\">Log out</a>\n";
 	}
 	echo "</span></div>\n";
 }
