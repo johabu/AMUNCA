@@ -1,7 +1,7 @@
 <?php
 function printheader($title) {
 	echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n\"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n".
-	"<html>\n<head>\n<title>".$title."</title>\n".
+	" <html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n<title>".$title."</title>\n".
 	"<meta http-equiv=\"content-type\" content=\"text/html; charset=ISO-8859-1\">\n".
 	"<link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\">\n".
 	"</head>\n<body>\n".
@@ -44,6 +44,7 @@ function printmenu() {
 		echo "<br />&nbsp;<a href=\"calendars.php\">Show calendars</a><br />\n";
 		if(in_array('cal_create', $_SESSION['rights'])) {
 			echo "<br />&nbsp;<a href=\"createcal.php\">Create calendars</a><br />\n";
+		echo "<br />&nbsp;<a href=\"editcal.php\">Manage calendars</a><br />\n";
 		}
 		if(in_array('admin', $_SESSION['rights'])) {
 			echo "<br />&nbsp;<a href=\"admin\">Administration</a><br />\n";
@@ -62,6 +63,7 @@ function printadminmenu() {
 		if(in_array('cal_create', $_SESSION['rights'])) {
 			echo "<br />&nbsp;<a href=\"../createcal.php\">Create calendars</a><br />\n";
 		}
+		echo "<br />&nbsp;<a href=\"../editcal.php\">Manage calendars</a><br />\n";
 		if(in_array('admin', $_SESSION['rights'])) {
 			echo "<br />&nbsp;<a href=\"index.php\">Administration</a><br />\n";
 		}

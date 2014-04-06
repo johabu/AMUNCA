@@ -23,7 +23,7 @@ h3 { color: #003d7a }
 	left: 0px;
 	top: 50px;
 	height: 100%;
-	width: 140px;
+	width: 150px;
 }
 
 #login {
@@ -35,11 +35,11 @@ h3 { color: #003d7a }
 
 #content {
 	position:absolute;
-	left: 150px;
+	left: 160px;
 	top: 50px;
-	width: -moz-calc(100% - 150px);
-        width: -webkit-calc(100% - 150px);
-        width: calc(100% - 150px);
+	width: -moz-calc(100% - 160px);
+        width: -webkit-calc(100% - 160px);
+        width: calc(100% - 160px);
 }
 
 .error {

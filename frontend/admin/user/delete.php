@@ -21,7 +21,7 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 		echo "User was deleted.<br />\n";
 	}
 	elseif(isset($_POST['submit']) AND $_POST['submit'] == 'Choose user') {
-		echo "Are you sure to delete this user?<br />\n";
+		echo "Are you sure you want to delete this user?<br />\n";
 		$sql = "SELECT
 			session_id,
 			user_name,
@@ -38,53 +38,50 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 		$result = mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
 		$row = mysql_fetch_assoc($result);
 		echo "<table>\n";
-		echo " <tr>\n";
-		echo "  <td>\n";
+		echo "<tr>\n";
+		echo "<td>\n";
 		echo "Username:\n";
-		echo "  </td>\n";
-		echo "  <td>\n";
-		echo htmlentities($row['user_name'], ENT_QUOTES)."\n";
-		echo " (";
+		echo "</td>\n";
+		echo "<td>\n";
+		echo "<b>".htmlentities($row['user_name'], ENT_QUOTES)."</b> (";
 		if($row['session_id'] AND (time()-60*2 < $row['last_action']))
-			echo "<span style=\"color:green\">online</span>\n";
+			echo "<span style=\"color:green\">online</span>";
 		else
-			echo "<span style=\"color:red\">offline</span>\n";
-		echo ")";
-		echo "  </td>\n";
-		echo " </tr>\n";
-		echo " <tr>\n";
-		echo "  <td>\n";
-		echo "Email address:\n";
-		echo "  </td>\n";
-		echo "  <td>\n";
+			echo "<span style=\"color:red\">offline</span>";
+		echo ")</td>\n";
+		echo "</tr>\n";
+		echo "<tr>\n";
+		echo "<td>";
+		echo "Email address:";
+		echo "</td>\n";
+		echo "<td>";
 		if($row['show_email']==1)
-			echo htmlentities($row['user_email'], ENT_QUOTES)."\n";
-		echo "  </td>\n";
-		echo " </tr>\n";
-		echo " <tr>\n";
-		echo "  <td>\n";
-		echo "registration_date :\n";
-		echo "  </td>\n";
-		echo "  <td>\n";
-		echo $row['regdate']."\n";
-		echo "  </td>\n";
-		echo " </tr>\n";
-		echo " <tr>\n";
-		echo "  <td>\n";
-		echo "Last login:\n";
-		echo "  </td>\n";
-		echo "  <td>\n";
-		echo date('d.m.Y H:i \U\h\r', $row['last_login'])."\n";
-		echo "  </td>\n";
-		echo " </tr>\n";
-		echo " <tr>\n";
+			echo htmlentities($row['user_email'], ENT_QUOTES);
+		echo "</td>\n";
+		echo "</tr>\n";
+		echo "<tr>\n";
+		echo "<td>";
+		echo "Registration date :";
+		echo "</td>\n";
+		echo "<td>";
+		echo $row['regdate']."";
+		echo "</td>\n";
+		echo "</tr>\n";
+		echo "<tr>\n";
+		echo "<td>";
+		echo "Last login:";
+		echo "</td>\n";
+		echo "<td>";
+		echo date('d.m.Y H:i \U\h\r', $row['last_login']);
+		echo "</td>\n";
+		echo "</tr>";
 		echo "</table>\n";
 		
 		echo "<form ".
 		"action=\"index.php?section=admin&page=user&action=delete\" ".
 		"method=\"post\">\n";
 		echo "<input type=\"hidden\" name=\"ID\" value=\"".$_POST['ID']."\">\n";
-		echo "<input type=\"submit\" name=\"submit\" value=\"Delete user\">\n";
+		echo "<input type=\"submit\" name=\"submit\" value=\"Delete user\"><br /><br />\n";
 		echo "</form>\n";
 	}
 }
