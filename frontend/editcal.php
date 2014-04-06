@@ -42,7 +42,7 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 		}
 	}
 	//delete calendar
-	if(isset($_POST['submit2']) AND $_POST['submit2']=='Delete calendar'){
+	elseif(isset($_POST['submit2']) AND $_POST['submit2']=='Delete calendar'){
 		// create array for errors
 		$errors = array();
 		if(!isset($_POST['cal_name']))
@@ -95,22 +95,33 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 		echo "<textarea name=\"cal_desc\" cols=\"50\" rows=\"7\">".htmlentities($row['cal_desc'], ENT_QUOTES)."</textarea>\n";
 		echo "<br /><br />\n";
 		echo "<br /><input type=\"submit\" name=\"submit\" value=\"Update data\">\n";
-		echo "<br /><input type=\"submit\" name=\"submit2\" value=\"Delete calendar\">\n";
+		echo "<br /><br /><input type=\"submit\" name=\"submit2\" value=\"Delete calendar\">\n";
 		echo "<input type=\"hidden\" name=\"ID\" value=\"".$_POST['ID']."\">\n";
 		echo "<input type=\"hidden\" name=\"cal_name\" value=\"".htmlentities($row['cal_name'], ENT_QUOTES)."\">\n";
 		echo "</form><br /><br />\n";
 	}
 } else {
-	$sql = "SELECT
-		ID,
-		cal_name
-		FROM
-		calendars
-		WHERE
-		creator_id = '".mysql_real_escape_string($_SESSION['user_id'])."'
-		ORDER BY
-		cal_name ASC
-	";
+	if(in_array('admin', $_SESSION['rights'])) {
+		$sql = "SELECT
+			ID,
+			cal_name
+			FROM
+			calendars
+			ORDER BY
+			cal_name ASC
+		";
+	} else {
+		$sql = "SELECT
+			ID,
+			cal_name
+			FROM
+			calendars
+			WHERE
+			creator_id = '".mysql_real_escape_string($_SESSION['user_id'])."'
+			ORDER BY
+			cal_name ASC
+		";
+	}
 	$result = mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
 	if(!mysql_num_rows($result))
 		echo "There are no calendars stored in the database created by you.\n";
