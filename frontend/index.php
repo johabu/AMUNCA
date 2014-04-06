@@ -24,7 +24,7 @@ if(!isset($_SESSION['user_id'])) {
 	if(in_array('cal_create', $_SESSION['rights'])) {
 		echo "<br /><a href=\"createcal.php\">Create</a> a new calendar.<br />\n";
 	}
-	echo "<br /><a href=\"calendars.php\">Show calendars</a> in this database.<br />\n";
+	echo "<br /><a href=\"callist.php\">Show calendars</a> in this database.<br />\n";
 }
 printfooter();
 ?>

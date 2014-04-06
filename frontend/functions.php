@@ -41,7 +41,7 @@ function printmenu() {
 	} else {
 		echo "<br />&nbsp;<a href=\"index.php\">Main page</a><br />\n";
 		echo "<br />&nbsp;<a href=\"userlist.php\">Userlist</a><br />\n";
-		echo "<br />&nbsp;<a href=\"calendars.php\">Show calendars</a><br />\n";
+		echo "<br />&nbsp;<a href=\"callist.php\">Show calendars</a><br />\n";
 		if(in_array('cal_create', $_SESSION['rights'])) {
 			echo "<br />&nbsp;<a href=\"createcal.php\">Create calendars</a><br />\n";
 		echo "<br />&nbsp;<a href=\"editcal.php\">Manage calendars</a><br />\n";
@@ -59,7 +59,7 @@ function printadminmenu() {
 	} else {
 		echo "<br />&nbsp;<a href=\"../index.php\">Main page</a><br />\n";
 		echo "<br />&nbsp;<a href=\"../userlist.php\">Userlist</a><br />\n";
-		echo "<br />&nbsp;<a href=\"../calendars.php\">Show calendars</a><br />\n";
+		echo "<br />&nbsp;<a href=\"../callist.php\">Show calendars</a><br />\n";
 		if(in_array('cal_create', $_SESSION['rights'])) {
 			echo "<br />&nbsp;<a href=\"../createcal.php\">Create calendars</a><br />\n";
 		}

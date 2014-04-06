@@ -15,6 +15,7 @@ if(!isset($_SESSION['user_id'])) {
 }
 else {
 if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
+	//update description
 	if(isset($_POST['submit']) AND $_POST['submit']=='Update data'){
 		// create array for errors
 		$errors = array();
@@ -35,8 +36,38 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 					WHERE
 					ID = '".mysql_real_escape_string($_POST['ID'])."'
 				";
-			mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
-			echo "Calendar updated successfully.<br /><a href=\"index.php\">Main page</a>\n";
+				mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
+				echo "Calendar updated successfully.<br /><a href=\"index.php\">Main page</a>\n";
+			}
+		}
+	}
+	//delete calendar
+	if(isset($_POST['submit2']) AND $_POST['submit2']=='Delete calendar'){
+		// create array for errors
+		$errors = array();
+		if(!isset($_POST['cal_name']))
+			$errors[]= "Please use the form from the calendar managing page.";
+		else{
+			if(count($errors)){
+				echo "<span class=\"error\">Calendar could not be deleted.</span><br />\n".
+				"<br />\n";
+				foreach($errors as $error)
+					echo "<span class=\"error\">".$error."</span><br />\n";
+			}
+			else{
+				$sql = "DELETE FROM
+					calendars
+					WHERE
+					ID = '".mysql_real_escape_string($_POST['ID'])."'
+				";
+				mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
+				$sql = "DELETE FROM
+					user_rights
+					WHERE
+					authority = '".mysql_real_escape_string($_POST['cal_name'])."'
+				";
+				mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
+				echo "Calendar deleted successfully.<br /><a href=\"index.php\">Main page</a>\n";
 			}
 		}
 	}
@@ -64,7 +95,9 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 		echo "<textarea name=\"cal_desc\" cols=\"50\" rows=\"7\">".htmlentities($row['cal_desc'], ENT_QUOTES)."</textarea>\n";
 		echo "<br /><br />\n";
 		echo "<br /><input type=\"submit\" name=\"submit\" value=\"Update data\">\n";
+		echo "<br /><input type=\"submit\" name=\"submit2\" value=\"Delete calendar\">\n";
 		echo "<input type=\"hidden\" name=\"ID\" value=\"".$_POST['ID']."\">\n";
+		echo "<input type=\"hidden\" name=\"cal_name\" value=\"".htmlentities($row['cal_name'], ENT_QUOTES)."\">\n";
 		echo "</form><br /><br />\n";
 	}
 } else {
