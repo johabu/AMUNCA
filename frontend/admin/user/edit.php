@@ -129,6 +129,7 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 		";
 		$result = mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
 		$row = mysql_fetch_assoc($result);
+		echo "<h3>Manage user data</h3>\n";
 		echo "<form ".
 		" name=\"Data\" ".
 		" action=\"index.php?page=user&action=edit\" ".
@@ -158,7 +159,8 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 		echo "<input type=\"hidden\" name=\"ID\" value=\"".$_POST['ID']."\">\n";
 		echo "</form><br /><br />\n";
 		
-		//password
+		//set password
+		echo "<h3>Set user password</h3>\n";
 		echo "<form ".
 		" name=\"user_pswd\" ".
 		" action=\"index.php?page=user&action=edit\" ".
@@ -181,6 +183,7 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 		echo "</form><br /><br />\n";
 
 		// rights
+		echo "<h3>Manage user rights</h3>\n";
 		echo "<form ".
 		" name=\"rights\" ".
 		" action=\"index.php?page=user&action=edit\" ".

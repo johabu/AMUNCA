@@ -10,32 +10,32 @@ printmenu();
 
 echo "<h2>List of AMUNCA users</h2>";
 if(!isset($_SESSION['user_id'])) {
-        //die("You are not logged in.<br />\nPlease log in first.\n");
+        echo "You are not logged in.<br />\nPlease <a href=\"login.php\">log in</a> first.\n";
         header("Location: index.php");
 }
 else {
 
-echo "<table width=\"50%\">\n";
-echo " <tr>\n";
-echo "  <td>";
-echo "Username";
-echo "  </td>\n";
-echo "  <td>";
-echo "Date of registration&nbsp;&nbsp;&nbsp;";
-echo "  </td>\n";
-echo "  <td>";
-echo "Last login";
-echo "  </td>\n";
-echo "  <td>";
-echo "Status ";
-echo "  </td>\n";
-echo " </tr>\n";
+echo "<table rules=\"groups\" width=\"50%\">\n";
+echo "<thead><tr>\n";
+echo "<td>";
+echo "<b>Username</b>";
+echo "</td>\n";
+echo "<td>";
+echo "<b>Date of registration</b>";
+echo "</td>\n";
+echo "<td>";
+echo "<b>Last login</b>";
+echo "</td>\n";
+echo "<td>";
+echo "<b>Status</b>";
+echo "</td>\n";
+echo "</tr></thead>\n<tbody>";
 
 $sql = "SELECT
 	ID,
 	session_id,
 	user_name,
-	DATE_FORMAT(registration_date, '%d.%m.%Y') as regdate,
+	DATE_FORMAT(registration_date, '%d/%m/%Y') as regdate,
 	last_login,
 	last_action
 	FROM
@@ -49,25 +49,25 @@ while ($row = mysql_fetch_assoc($result)) {
 	// if a session id exists and if the user was not inactive for more than 5 minutes
 	// he is considered as being online
 	if($row['session_id'] AND (time()-60*5 < $row['last_action']))
-		$online = "<span style=\"color:green\">online</span>\n";
+		$online = "<span style=\"color:green\">online</span>";
 	else
-		$online = "<span style=\"color:red\">offline</span>\n";
-	echo " <tr>\n";
-	echo "  <td>\n";
-	echo "<a href=\"profile.php?id=".$row['ID']."\">".$row['user_name']."</a>\n";
-	echo "  </td>\n";
-	echo "  <td>\n";
-	echo $row['regdate']."\n";
-	echo "  </td>\n";
-	echo "  <td>\n";
-	echo date('d/m/Y  H:i', $row['last_login'])."&nbsp;&nbsp;&nbsp;\n";
-	echo "  </td>\n";
-	echo "  <td>\n";
+		$online = "<span style=\"color:red\">offline</span>";
+	echo "<tr>\n";
+	echo "<td><br />";
+	echo "<a href=\"profile.php?id=".$row['ID']."\">".$row['user_name']."</a>";
+	echo "</td>\n";
+	echo "<td><br />";
+	echo $row['regdate']."";
+	echo "</td>\n";
+	echo "<td><br />";
+	echo date('d/m/Y  H:i', $row['last_login'])."&nbsp;&nbsp;&nbsp;";
+	echo "</td>\n";
+	echo "<td><br />";
 	echo $online;
-	echo "  </td>\n";
-	echo " </tr>\n";
+	echo "</td>\n";
+	echo "</tr>\n";
 }
-echo "</table>";
+echo "</tbody></table>";
 }
 printfooter();
 ?>
