@@ -16,10 +16,20 @@ function printheader($title) {
 	"<img height=\"40px\" src=\"img/calendar_C.svg\"> ".
 	"<img height=\"40px\" src=\"img/calendar_A.svg\"> ".
 	"</a>\n".
-	"</span>\n".
-	"<span id=\"login\">";
+	"</span>\n";
 	if(!isset($_SESSION['user_id'])) {
-		echo "<a href=\"login.php\">Log in</a> | <a href=\"signup.php\">Sign up</a>\n";
+		echo "<form id=\"login\" ".
+		" name=\"Login\" ".
+		" action=\"login.php\" ".
+		" method=\"post\" ".
+		" accept-charset=\"ISO-8859-1\">\n";
+		echo "Username:";
+		echo "<input type=\"text\" name=\"user_name\" maxlength=\"32\">\n";
+		echo "Password:";
+		echo "<input type=\"password\" name=\"user_pswd\">\n";
+		echo "<input type=\"hidden\" name=\"autologin\" value=\"1\">\n";
+		echo "<input type=\"submit\" name=\"submit\" value=\"Log in\">\n&nbsp;|&nbsp;<a href=\"signup.php\">Sign up</a>\n";
+		echo "</form>\n";
 	} else {
 		$sql = "SELECT
 			user_name
@@ -30,9 +40,10 @@ function printheader($title) {
 		";
 		$result = mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
 		$row = mysql_fetch_assoc($result);
-		echo "<a title=\"my profile\" href=\"myprofile.php\">".$row['user_name']."</a> | <a href=\"logout.php\">Log out</a>\n";
+		echo "<span id=\"login\"><a title=\"my profile\"".
+		"href=\"myprofile.php\">".$row['user_name']."</a> | <a href=\"logout.php\">Log out</a></span>\n";
 	}
-	echo "</span></div>\n";
+	echo "</div>\n";
 }
 function printmenu() {
 	echo "<div id=\"menu\">\n";
