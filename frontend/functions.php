@@ -28,8 +28,8 @@ function printheader($title) {
 		echo "Password:";
 		echo "<input type=\"password\" name=\"user_pswd\" />\n";
 		echo "<input type=\"hidden\" name=\"autologin\" value=\"1\" />\n";
-		echo "<button type=\"submit\" name=\"submit\" class=\"signupbutton\" >Log in</button>\n".
-		"<a class=\"signupbutton\" href=\"signup.php\">Sign up</a>\n";
+		echo "<button type=\"submit\" name=\"submit\" value=\"Log in\" class=\"button loginbutton\" style=\"margin-right: 10px;\" >Log in</button>\n".
+		"<b>or</b> <a class=\"button signupbutton\" href=\"signup.php\" style=\"margin-left: 10px;\" >Sign up</a>\n";
 		echo "</div></form>\n";
 	} else {
 		$sql = "SELECT
