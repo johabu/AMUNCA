@@ -22,7 +22,7 @@ if(!isset($_SESSION['user_id'])) {
 		echo "<br />Since you have administrator rights, your are allowed to enter the <a href=\"admin/\">administration area</a>.<br />\n";
 	}
 	if(in_array('cal_create', $_SESSION['rights'])) {
-		echo "<br /><a href=\"createcal.php\">Create</a> a new calendar.<br />\n";
+		echo "<br /><a href=\"createcal.php\">Create</a> a new calendar or <a href=\"editcal.php\">manage</a> your calendars.<br />\n";
 	}
 	echo "<br /><a href=\"callist.php\">Show calendars</a> in this database.<br />\n";
 }

@@ -67,6 +67,8 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 					authority = '".mysql_real_escape_string($_POST['cal_name'])."'
 				";
 				mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
+				$sql = "DROP TABLE ".mysql_real_escape_string($_POST['cal_name']);
+				mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
 				echo "Calendar deleted successfully.<br /><a href=\"index.php\">Main page</a>\n";
 			}
 		}
