@@ -95,6 +95,15 @@ if(!isset($_SESSION['user_id'])) {
 				)
 			";
 			mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
+			$sql = 'CREATE TABLE `'.mysql_real_escape_string(trim($_POST['cal_name'])).'` ('
+				. ' `ID` INT AUTO_INCREMENT NOT NULL, '
+				. ' `event_name` VARCHAR(100) NOT NULL, '
+				. ' `event_desc` VARCHAR(500) NOT NULL, '
+				. ' `event_begin` INT NOT NULL DEFAULT \'0\', '
+				. ' `event_end` INT NOT NULL DEFAULT \'0\', '
+				. ' PRIMARY KEY (`ID`)'
+				. ' )';
+			mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
 			echo "Congratulations!\n<br />".
 			"The new calendar has been created successfully.\n<br />";
 		}
