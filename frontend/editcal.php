@@ -87,18 +87,18 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 		" name=\"Data\" ".
 		" action=\"".$_SERVER['PHP_SELF']."\" ".
 		" method=\"post\" ".
-		" accept-charset=\"ISO-8859-1\">\n";
+		" accept-charset=\"ISO-8859-1\"><div>\n";
 		echo "<span style=\"font-weight:bold;\" >\nCalendar name:</span>\n";
 		echo htmlentities($row['cal_name'], ENT_QUOTES)."\n";
 		echo "<br /><br />\n";
 		echo "<span style=\"font-weight:bold;\" >\nCalendar description:</span><br />\n";
 		echo "<textarea name=\"cal_desc\" cols=\"50\" rows=\"7\">".htmlentities($row['cal_desc'], ENT_QUOTES)."</textarea>\n";
 		echo "<br /><br />\n";
-		echo "<br /><input type=\"submit\" name=\"submit\" value=\"Update data\">\n";
-		echo "<br /><br /><input type=\"submit\" name=\"submit2\" value=\"Delete calendar\">\n";
-		echo "<input type=\"hidden\" name=\"ID\" value=\"".$_POST['ID']."\">\n";
-		echo "<input type=\"hidden\" name=\"cal_name\" value=\"".htmlentities($row['cal_name'], ENT_QUOTES)."\">\n";
-		echo "</form><br /><br />\n";
+		echo "<br /><input type=\"submit\" name=\"submit\" value=\"Update data\" />\n";
+		echo "<br /><br /><input type=\"submit\" name=\"submit2\" value=\"Delete calendar\" />\n";
+		echo "<input type=\"hidden\" name=\"ID\" value=\"".$_POST['ID']."\" />\n";
+		echo "<input type=\"hidden\" name=\"cal_name\" value=\"".htmlentities($row['cal_name'], ENT_QUOTES)."\" />\n";
+		echo "</div></form><br /><br />\n";
 	}
 } else {
 	if(in_array('admin', $_SESSION['rights'])) {
@@ -129,7 +129,7 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 		echo "<form ".
 		" action=\"".$_SERVER['PHP_SELF']."\" ".
 		" method=\"post\" ".
-		" accept-charset=\"ISO-8859-1\">";
+		" accept-charset=\"ISO-8859-1\"><div>";
 		echo "<select name=\"ID\">\n";
 		echo " <option value=\"0\">Please choose a calendar</option>\n";
 		while($row = mysql_fetch_assoc($result)) {
@@ -138,8 +138,8 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 			echo " </option>\n";
 		}
 		echo "</select>\n";
-		echo "<input type=\"submit\" name=\"submit\" value=\"Choose calendar\">";
-		echo "</form><br /><br />\n";
+		echo "<input type=\"submit\" name=\"submit\" value=\"Choose calendar\" />";
+		echo "</div></form><br /><br />\n";
 	}
 }
 }

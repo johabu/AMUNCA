@@ -14,37 +14,37 @@ echo "<form ".
 	" name=\"Sign up\" ".
 	" action=\"".$_SERVER['PHP_SELF']."\" ".
 	" method=\"post\" ".
-	" accept-charset=\"ISO-8859-1\">\n";
+	" accept-charset=\"ISO-8859-1\"><div>\n";
 	echo "<span style=\"font-weight:bold;\"> ".
 	"Username: *<br />\n".
 	"</span>\n";
-	echo "<input type=\"text\" name=\"user_name\" value=\"\" maxlength=\"32\">\n";
+	echo "<input type=\"text\" name=\"user_name\" value=\"\" maxlength=\"32\" />\n";
 	echo "<br /><span style=\"font-size: small;\">Your username must consist of 4-32 characters</span><br /><br />\n";
 	echo "<span style=\"font-weight:bold;\"> ".
 	"Password: *<br />\n".
 	"</span>\n";
-	echo "<input type=\"password\" name=\"user_pswd\" value=\"\">\n";
+	echo "<input type=\"password\" name=\"user_pswd\" value=\"\" />\n";
         echo "<br /><span style=\"font-size: small;\">Your password must be at least 8 characters long</span><br /><br />\n";
 	echo "<span style=\"font-weight:bold;\"> ".
 	"Confirm password: *<br />\n".
 	"</span>\n";
-	echo "<input type=\"password\" name=\"user_pswdcheck\" value=\"\" >\n";
+	echo "<input type=\"password\" name=\"user_pswdcheck\" value=\"\" />\n";
         echo "<br /><span style=\"font-size: small;\">Please confirm your password</span><br /><br />\n";
 	echo "<span style=\"font-weight:bold;\" ".
 	" title=\"name@mail.com\">\n".
 	"Email address: *<br />\n".
 	"</span>\n";
-	echo "<input type=\"text\" name=\"user_email\" maxlength=\"70\" value=\"\">\n";
+	echo "<input type=\"text\" name=\"user_email\" maxlength=\"70\" value=\"\" />\n";
         echo "<br /><span style=\"font-size: small;\">Enter your email address here</span><br /><br />\n";
 	echo "<span>\n".
 	"Show your email to others:\n".
 	"</span>\n";
-	echo "<input type=\"radio\" name=\"show_email\" value=\"1\"> yes\n";
-	echo "<input type=\"radio\" name=\"show_email\" value=\"0\" checked> no\n<br /><br />";
+	echo "<input type=\"radio\" name=\"show_email\" value=\"1\" /> yes\n";
+	echo "<input type=\"radio\" name=\"show_email\" value=\"0\" checked=\"checked\" /> no\n<br /><br />";
 	echo "<span style=\"font-size: small;\">* required fields</span><br />";
-	echo "<input type=\"submit\" name=\"submit\" value=\"Sign up\">\n";
-	echo "<input type=\"reset\" value=\"Reset\">\n";
-	echo "</form>\n";
+	echo "<input type=\"submit\" name=\"submit\" value=\"Sign up\" />\n";
+	echo "<input type=\"reset\" value=\"Reset\" />\n";
+	echo "</div></form>\n";
 
 if (isset($_POST['submit']) AND $_POST['submit']=='Sign up'){
 	// array of errors

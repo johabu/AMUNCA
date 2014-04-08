@@ -18,7 +18,7 @@ switch(isset($_GET['action'])?$_GET['action']:''){
 	default:
 		$actions = array('edit' => 'Edit User', 'delete' => 'Delete User');
                 foreach($actions as $action => $name)
-			echo "<a href=\"index.php?page=user&action=".$action."\">".$name."</a><br /><br />\n";
+			echo "<a href=\"index.php?page=user&amp;action=".$action."\">".$name."</a><br /><br />\n";
 		break;
 }
 

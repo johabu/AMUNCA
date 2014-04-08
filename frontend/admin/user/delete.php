@@ -79,10 +79,10 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 		
 		echo "<form ".
 		"action=\"index.php?section=admin&page=user&action=delete\" ".
-		"method=\"post\">\n";
-		echo "<input type=\"hidden\" name=\"ID\" value=\"".$_POST['ID']."\">\n";
-		echo "<input type=\"submit\" name=\"submit\" value=\"Delete user\"><br /><br />\n";
-		echo "</form>\n";
+		"method=\"post\"><div>\n";
+		echo "<input type=\"hidden\" name=\"ID\" value=\"".$_POST['ID']."\" />\n";
+		echo "<input type=\"submit\" name=\"submit\" value=\"Delete user\" /><br /><br />\n";
+		echo "</div></form>\n";
 	}
 }
 else {

@@ -41,13 +41,13 @@ else {
 	while ($row = mysql_fetch_assoc($result)) {
 		echo "<tr>\n";
 		echo "<td><br />";
-		echo $row['cal_name']."</a>";
+		echo $row['cal_name'];
 		echo "</td>\n";
 		echo "<td><br />";
-		echo $row['cal_desc']."";
+		echo $row['cal_desc'];
 		echo "</td>\n";
 		echo "<td><br />";
-		echo $row['creationdate']."";
+		echo $row['creationdate'];
 		echo "</td>\n";
 		echo "</tr>\n";
 	}

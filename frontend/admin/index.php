@@ -21,7 +21,8 @@ if(!isset($_SESSION['rights']) OR !in_array('admin', $_SESSION['rights'])) {
 		include $page[$_GET['page']];
 	// Otherwise show menu
 	else
-		echo "<a href=\"index.php?page=user\">Manage AMUNCA users</a>\n";
+		echo "<a href=\"index.php?page=user\">Manage AMUNCA users</a><br />\n";
+		echo "<a href=\"../editcal.php\">Manage calendars</a>\n";
 
 	echo "<p>Back to the <a href=\"../index.php\">Main page</a></p>";
 }

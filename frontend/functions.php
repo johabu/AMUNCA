@@ -2,19 +2,19 @@
 function printheader($title) {
 	echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n\"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n".
 	" <html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n<title>".$title."</title>\n".
-	"<meta http-equiv=\"content-type\" content=\"text/html; charset=ISO-8859-1\">\n".
-	"<link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\">\n".
+	"<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />\n".
+	"<link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" />\n".
 	"</head>\n<body>\n".
 	"<div id=\"main\">\n";
 	echo "<div id=\"topmenu\">\n".
 	"<span id=\"calendarimg\">\n".
 	"<a href=\"index.php\">\n".
-	"<img height=\"40px\" src=\"img/calendar_A.svg\"> ".
-	"<img height=\"40px\" src=\"img/calendar_M.svg\"> ".
-	"<img height=\"40px\" src=\"img/calendar_U.svg\"> ".
-	"<img height=\"40px\" src=\"img/calendar_N.svg\"> ".
-	"<img height=\"40px\" src=\"img/calendar_C.svg\"> ".
-	"<img height=\"40px\" src=\"img/calendar_A.svg\"> ".
+	"<img height=\"40px\" alt=\"A\" src=\"img/calendar_A.svg\" /> ".
+	"<img height=\"40px\" alt=\"M\" src=\"img/calendar_M.svg\" /> ".
+	"<img height=\"40px\" alt=\"U\" src=\"img/calendar_U.svg\" /> ".
+	"<img height=\"40px\" alt=\"N\" src=\"img/calendar_N.svg\" /> ".
+	"<img height=\"40px\" alt=\"C\" src=\"img/calendar_C.svg\" /> ".
+	"<img height=\"40px\" alt=\"A\" src=\"img/calendar_A.svg\" /> ".
 	"</a>\n".
 	"</span>\n";
 	if(!isset($_SESSION['user_id'])) {
@@ -22,14 +22,14 @@ function printheader($title) {
 		" name=\"Login\" ".
 		" action=\"login.php\" ".
 		" method=\"post\" ".
-		" accept-charset=\"ISO-8859-1\">\n";
+		" accept-charset=\"ISO-8859-1\"><div>\n";
 		echo "Username:";
-		echo "<input type=\"text\" name=\"user_name\" maxlength=\"32\">\n";
+		echo "<input type=\"text\" name=\"user_name\" maxlength=\"32\" />\n";
 		echo "Password:";
-		echo "<input type=\"password\" name=\"user_pswd\">\n";
-		echo "<input type=\"hidden\" name=\"autologin\" value=\"1\">\n";
-		echo "<input type=\"submit\" name=\"submit\" value=\"Log in\">\n&nbsp;|&nbsp;<a href=\"signup.php\">Sign up</a>\n";
-		echo "</form>\n";
+		echo "<input type=\"password\" name=\"user_pswd\" />\n";
+		echo "<input type=\"hidden\" name=\"autologin\" value=\"1\" />\n";
+		echo "<input type=\"submit\" name=\"submit\" value=\"Log in\" />\n&nbsp;|&nbsp;<a href=\"signup.php\">Sign up</a>\n";
+		echo "</div></form>\n";
 	} else {
 		$sql = "SELECT
 			user_name
@@ -40,8 +40,7 @@ function printheader($title) {
 		";
 		$result = mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
 		$row = mysql_fetch_assoc($result);
-		echo "<span id=\"login\"><a title=\"my profile\"".
-		"href=\"myprofile.php\">".$row['user_name']."</a> | <a href=\"logout.php\">Log out</a></span>\n";
+		echo "<span id=\"login\"><a title=\"my profile\" href=\"myprofile.php\">".$row['user_name']."</a> | <a href=\"logout.php\">Log out</a></span>\n";
 	}
 	echo "</div>\n";
 }
@@ -83,7 +82,7 @@ function printadminmenu() {
 }
 
 function printfooter() {
-	echo "</div>\n</body>\n</html>";
+	echo "</div></div>\n</body>\n</html>";
 }
 
 // check length of words in string and correct them if necessary

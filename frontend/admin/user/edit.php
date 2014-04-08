@@ -132,9 +132,9 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 		echo "<h3>Manage user data</h3>\n";
 		echo "<form ".
 		" name=\"Data\" ".
-		" action=\"index.php?page=user&action=edit\" ".
+		" action=\"index.php?page=user&amp;action=edit\" ".
 		" method=\"post\" ".
-		" accept-charset=\"ISO-8859-1\">\n";
+		" accept-charset=\"ISO-8859-1\"><div>\n";
 		echo "<span style=\"font-weight:bold;\" >\nUsername:\n";
 		echo htmlentities($row['user_name'], ENT_QUOTES)."\n";
 		echo "</span><br /><br />\n";
@@ -142,53 +142,53 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 		" title=\"name@mail.com\">\n".
 		"Email address:\n".
 		"</span>\n";
-		echo "<input type=\"text\" name=\"user_email\" maxlength=\"70\" value=\"".htmlentities($row['user_email'], ENT_QUOTES)."\">\n";
+		echo "<input type=\"text\" name=\"user_email\" maxlength=\"70\" value=\"".htmlentities($row['user_email'], ENT_QUOTES)."\" />\n";
 		echo "<br />\n";
 		echo "<span>\n".
 		"Show email address to other users:\n".
 		"</span>\n";
 		if($row['show_email']==1){
-			echo "<input type=\"radio\" name=\"show_email\" value=\"1\" checked> yes\n";
-			echo "<input type=\"radio\" name=\"show_email\" value=\"0\"> no\n";
+			echo "<input type=\"radio\" name=\"show_email\" value=\"1\" checked=\"checked\" /> yes\n";
+			echo "<input type=\"radio\" name=\"show_email\" value=\"0\" /> no\n";
 		}
 		else{
-			echo "<input type=\"radio\" name=\"show_email\" value=\"1\"> yes\n";
-			echo "<input type=\"radio\" name=\"show_email\" value=\"0\" checked> no\n";
+			echo "<input type=\"radio\" name=\"show_email\" value=\"1\" /> yes\n";
+			echo "<input type=\"radio\" name=\"show_email\" value=\"0\" checked=\"checked\" /> no\n";
 		}
-		echo "<br /><input type=\"submit\" name=\"submit\" value=\"Update data\">\n";
-		echo "<input type=\"hidden\" name=\"ID\" value=\"".$_POST['ID']."\">\n";
-		echo "</form><br /><br />\n";
+		echo "<br /><input type=\"submit\" name=\"submit\" value=\"Update data\" />\n";
+		echo "<input type=\"hidden\" name=\"ID\" value=\"".$_POST['ID']."\" />\n";
+		echo "</div></form><br /><br />\n";
 		
 		//set password
 		echo "<h3>Set user password</h3>\n";
 		echo "<form ".
 		" name=\"user_pswd\" ".
-		" action=\"index.php?page=user&action=edit\" ".
+		" action=\"index.php?page=user&amp;action=edit\" ".
 		" method=\"post\" ".
-		" accept-charset=\"ISO-8859-1\">\n";
+		" accept-charset=\"ISO-8859-1\"><div>\n";
 		echo "<span style=\"font-weight:bold;\" ".
 		" title=\"min.8\">\n".
 		"New password:\n".
 		"</span>\n";
-		echo "<input type=\"password\" name=\"user_pswd\">\n";
+		echo "<input type=\"password\" name=\"user_pswd\" />\n";
 		echo "<br />\n";
 		echo "<span style=\"font-weight:bold;\" ".
 		" title=\"min.8\">\n".
 		"Confirm new password:\n".
 		"</span>\n";
-		echo "<input type=\"password\" name=\"user_pswdcheck\">\n";
+		echo "<input type=\"password\" name=\"user_pswdcheck\" />\n";
 		echo "<br />\n";
-		echo "<input type=\"submit\" name=\"submit\" value=\"Change password\">\n";
-		echo "<input type=\"hidden\" name=\"ID\" value=\"".$_POST['ID']."\">\n";
-		echo "</form><br /><br />\n";
+		echo "<input type=\"submit\" name=\"submit\" value=\"Change password\" />\n";
+		echo "<input type=\"hidden\" name=\"ID\" value=\"".$_POST['ID']."\" />\n";
+		echo "</div></form><br /><br />\n";
 
 		// rights
 		echo "<h3>Manage user rights</h3>\n";
 		echo "<form ".
 		" name=\"rights\" ".
-		" action=\"index.php?page=user&action=edit\" ".
+		" action=\"index.php?page=user&amp;action=edit\" ".
 		" method=\"post\" ".
-		" accept-charset=\"ISO-8859-1\">\n";
+		" accept-charset=\"ISO-8859-1\"><div>\n";
 		$sql = "SELECT
 			authority
 			FROM
@@ -204,17 +204,17 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 		$rights = array('admin','user_manage','cal_create');
 		foreach($rights as $right){
 			if(in_array($right, $user_rights))
-				echo "<input type=\"checkbox\" name=\"rights[]\" value=\"".$right."\" checked>\n";
+				echo "<input type=\"checkbox\" name=\"rights[]\" value=\"".$right."\" checked=\"checked\" />\n";
 			else
-				echo "<input type=\"checkbox\" name=\"rights[]\" value=\"".$right."\">\n";
+				echo "<input type=\"checkbox\" name=\"rights[]\" value=\"".$right."\" />\n";
 			echo "<span>\n".
 			$right."\n".
 			"</span>\n";
 			echo "<br />\n";
 		}
-		echo "<input type=\"submit\" name=\"submit\" value=\"Change rights\">\n";
-		echo "<input type=\"hidden\" name=\"ID\" value=\"".$_POST['ID']."\">\n";
-		echo "</form><br /><br />\n";
+		echo "<input type=\"submit\" name=\"submit\" value=\"Change rights\" />\n";
+		echo "<input type=\"hidden\" name=\"ID\" value=\"".$_POST['ID']."\" />\n";
+		echo "</div></form><br /><br />\n";
 	}
 }
 else {
@@ -231,9 +231,9 @@ else {
 		echo "There are no users stored in the database\n";
 	else {
 		echo "<form ".
-		" action=\"index.php?page=user&action=edit\" ".
+		" action=\"index.php?page=user&amp;action=edit\" ".
 		" method=\"post\" ".
-		" accept-charset=\"ISO-8859-1\">";
+		" accept-charset=\"ISO-8859-1\"><div>";
 		echo "<select name=\"ID\">\n";
 		echo " <option value=\"0\">Please choose a user</option>\n";
 		while($row = mysql_fetch_assoc($result)) {
@@ -242,8 +242,8 @@ else {
 			echo " </option>\n";
 		}
 		echo "</select>\n";
-		echo "<input type=\"submit\" name=\"submit\" value=\"Choose user\">";
-		echo "</form><br /><br />\n";
+		echo "<input type=\"submit\" name=\"submit\" value=\"Choose user\" />";
+		echo "</div></form><br /><br />\n";
 	}
 }
 ?>

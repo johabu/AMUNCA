@@ -18,20 +18,20 @@ if(!isset($_SESSION['user_id'])) {
 	" name=\"Create calendar\" ".
 	" action=\"".$_SERVER['PHP_SELF']."\" ".
 	" method=\"post\" ".
-	" accept-charset=\"ISO-8859-1\">\n";
+	" accept-charset=\"ISO-8859-1\"><div>\n";
 	echo "<span style=\"font-weight:bold;\"> ".
 	"Calendar name: *<br />\n".
 	"</span>\n";
-	echo "<input type=\"text\" name=\"cal_name\" value=\"\" maxlength=\"100\">\n";
+	echo "<input type=\"text\" name=\"cal_name\" value=\"\" maxlength=\"100\" />\n";
 	echo "<br /><span style=\"font-size: small;\">The calendar name can consist of up to 100 characters</span><br /><br />\n";
 	echo "<span style=\"font-weight:bold;\"> ".
 	"Description:<br />\n".
 	"</span>\n";
-	echo "<input type=\"text\" size=\"40\" name=\"cal_desc\" value=\"\" maxlength=\"500\">\n";
+	echo "<input type=\"text\" size=\"40\" name=\"cal_desc\" value=\"\" maxlength=\"500\" />\n";
         echo "<br /><span style=\"font-size: small;\">Enter a description for the new calendar</span><br /><br />\n";
 	echo "<span style=\"font-size: small;\">* required fields</span><br />";
-	echo "<input type=\"submit\" name=\"submit\" value=\"Create calendar\">\n";
-	echo "</form>\n";
+	echo "<input type=\"submit\" name=\"submit\" value=\"Create calendar\" />\n";
+	echo "</div></form>\n";
 
 	if (isset($_POST['submit']) AND $_POST['submit']=='Create calendar'){
 		// array of errors

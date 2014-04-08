@@ -14,20 +14,20 @@ echo "<form ".
 " name=\"Login\" ".
 " action=\"".$_SERVER['PHP_SELF']."\" ".
 " method=\"post\" ".
-" accept-charset=\"ISO-8859-1\">\n";
+" accept-charset=\"ISO-8859-1\"><div>\n";
 echo "Username:<br />\n";
-echo "<input type=\"text\" name=\"user_name\" maxlength=\"32\">\n";
+echo "<input type=\"text\" name=\"user_name\" maxlength=\"32\" />\n";
 echo "<br />\n";
 echo "Password:<br />\n";
-echo "<input type=\"password\" name=\"user_pswd\">\n";
+echo "<input type=\"password\" name=\"user_pswd\" />\n";
 echo "<a href=\"password.php\">forgot password</a>\n";
 echo "<br />\n";
 echo "Stay logged in ";
-echo "<input type=\"checkbox\" name=\"autologin\" value=\"1\">\n";
+echo "<input type=\"checkbox\" name=\"autologin\" value=\"1\" />\n";
 echo "<br />\n";
-echo "<input type=\"submit\" name=\"submit\" value=\"Log in\">\n";
+echo "<input type=\"submit\" name=\"submit\" value=\"Log in\" />\n";
 echo "<br />\n";
-echo "</form>\n";
+echo "</div></form>\n";
 
 if(isset($_POST['submit']) AND $_POST['submit']=='Log in'){
 	// if username and password match
