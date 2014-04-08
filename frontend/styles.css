@@ -1,6 +1,15 @@
 h1 { color: #003d7a }
 h2 { color: #003d7a }
 h3 { color: #003d7a }
+a:link { text-decoration:none; font-weight:bold; color:#292b2c; }
+a:visited { text-decoration:none; font-weight:bold; color:#292b2c; }
+a:hover { text-decoration:none; font-weight:bold; color:#003d7a; }
+a:active { text-decoration:none; font-weight:bold; color:#003d7a; }
+a:focus { text-decoration:none; font-weight:bold; color:#003d7a; }
+
+button {
+	border: none;
+}
 
 #topmenu {
 	background-color: #007a3d;
@@ -42,12 +51,20 @@ h3 { color: #003d7a }
         width: calc(100% - 160px);
 }
 
+.signupbutton {
+     background-color: #60B044;
+     background-image: linear-gradient(#8ADD6D, #60B044);
+     background-repeat: repeat-x;
+     border-radius: 3px;
+     color: #FFFFFF !important;
+     font-family: sans-serif ;
+     font-size: 13px;
+     font-weight: bold;
+     padding: 7px 12px;
+     position: relative;
+     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) !important;
+}
+
 .error {
 	color: red;
 }
-
-a:link { text-decoration:none; font-weight:bold; color:#292b2c; }
-a:visited { text-decoration:none; font-weight:bold; color:#292b2c; }
-a:hover { text-decoration:none; font-weight:bold; color:#003d7a; }
-a:active { text-decoration:none; font-weight:bold; color:#003d7a; }
-a:focus { text-decoration:none; font-weight:bold; color:#003d7a; }
