@@ -29,8 +29,9 @@ if(!isset($_SESSION['user_id'])) {
 	"</span>\n";
 	echo "<input type=\"text\" size=\"40\" name=\"cal_desc\" value=\"\" maxlength=\"500\" />\n";
         echo "<br /><span style=\"font-size: small;\">Enter a description for the new calendar</span><br /><br />\n";
-	echo "<span style=\"font-size: small;\">* required fields</span><br />";
-	echo "<input type=\"submit\" name=\"submit\" value=\"Create calendar\" />\n";
+	echo "<span style=\"font-size: small;\">* required fields</span><br /><br />";
+	echo "<button class=\"button\" type=\"submit\" name=\"submit\" value=\"Create calendar\">".
+	"<img src=\"img/add.svg\" height=\"50px\"><br />Create calendar</button>\n";
 	echo "</div></form>\n";
 
 	if (isset($_POST['submit']) AND $_POST['submit']=='Create calendar'){

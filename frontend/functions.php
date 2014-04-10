@@ -24,11 +24,11 @@ function printheader($title) {
 		" method=\"post\" ".
 		" accept-charset=\"ISO-8859-1\"><div>\n";
 		echo "Username:";
-		echo "<input type=\"text\" name=\"user_name\" maxlength=\"32\" />\n";
+		echo "<input class=\"button\" style=\"height: 10px;\" size=\"10\" type=\"text\" name=\"user_name\" maxlength=\"32\" />\n";
 		echo "Password:";
-		echo "<input type=\"password\" name=\"user_pswd\" />\n";
+		echo "<input class=\"button\" style=\"height: 10px;\" size=\"10\" type=\"password\" name=\"user_pswd\" />\n";
 		echo "<input type=\"hidden\" name=\"autologin\" value=\"1\" />\n";
-		echo "<button type=\"submit\" name=\"submit\" value=\"Log in\" class=\"button loginbutton\" style=\"margin-right: 10px;\" >Log in</button>\n".
+		echo "<button type=\"submit\" name=\"submit\" value=\"Log in\" class=\"button\" style=\"margin-right: 10px;\" >Log in</button>\n".
 		"<b>or</b> <a class=\"button signupbutton\" href=\"signup.php\" style=\"margin-left: 10px;\" >Sign up</a>\n";
 		echo "</div></form>\n";
 	} else {
