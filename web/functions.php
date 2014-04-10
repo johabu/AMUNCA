@@ -23,9 +23,9 @@ function printheader($title) {
 		" action=\"login.php\" ".
 		" method=\"post\" ".
 		" accept-charset=\"ISO-8859-1\"><div>\n";
-		echo "Username:";
+		echo "Username: ";
 		echo "<input class=\"button\" style=\"height: 10px;\" size=\"10\" type=\"text\" name=\"user_name\" maxlength=\"32\" />\n";
-		echo "Password:";
+		echo "Password: ";
 		echo "<input class=\"button\" style=\"height: 10px;\" size=\"10\" type=\"password\" name=\"user_pswd\" />\n";
 		echo "<input type=\"hidden\" name=\"autologin\" value=\"1\" />\n";
 		echo "<button type=\"submit\" name=\"submit\" value=\"Log in\" class=\"button\" style=\"margin-right: 10px;\" >Log in</button>\n".

@@ -6,7 +6,7 @@ include("functions.php");
 session_start();
 include("autologout.php");
 
-printheader("AMUNCA login");
+printheader("AMUNCA sign up");
 printmenu();
 
 echo "<h2>Sign up for an AMUNCA account</h2>\n";
@@ -42,8 +42,8 @@ echo "<form ".
 	echo "<input type=\"radio\" name=\"show_email\" value=\"1\" /> yes\n";
 	echo "<input type=\"radio\" name=\"show_email\" value=\"0\" checked=\"checked\" /> no\n<br /><br />";
 	echo "<span style=\"font-size: small;\">* required fields</span><br />";
-	echo "<input type=\"submit\" name=\"submit\" value=\"Sign up\" />\n";
-	echo "<input type=\"reset\" value=\"Reset\" />\n";
+	echo "<button class=\"button\" type=\"submit\" name=\"submit\" value=\"Sign up\">Sign up</button>\n";
+	echo "<button class=\"button\" type=\"reset\" value=\"Reset\">Reset form</button>\n";
 	echo "</div></form>\n";
 
 if (isset($_POST['submit']) AND $_POST['submit']=='Sign up'){

@@ -4,6 +4,7 @@ include("mysql.php");
 echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n\"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n".
 "<html>\n<head>\n<title>".$title."</title>\n".
 "<meta http-equiv=\"content-type\" content=\"text/html; charset=ISO-8859-1\">\n".
+"<title>AMUNCA setup</title>\n".
 "<link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\">\n".
 "</head>\n<body>\n".
 "<div id=\"main\">\n";
@@ -23,7 +24,7 @@ echo "<a href=\"login.php\">Log in</a> | <a href=\"signup.php\">Sign up</a>\n";
 echo "</span></div>\n<div id=\"menu\">\n";
 echo "<br />&nbsp;<a href=\"index.php\">Main page</a><br />\n";
 echo "</div><div id=\"content\">\n";
-echo "<h1>AMUNCA login area -- Setup</h1>";
+echo "<h1>AMUNCA -- Setup</h1>";
 
 //$sql = "DROP TABLE IF EXISTS users";
 @mysql_query($sql);

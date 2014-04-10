@@ -25,7 +25,7 @@ echo "<br />\n";
 echo "Stay logged in ";
 echo "<input type=\"checkbox\" name=\"autologin\" value=\"1\" />\n";
 echo "<br />\n";
-echo "<input type=\"submit\" name=\"submit\" value=\"Log in\" />\n";
+echo "<button class=\"button\" type=\"submit\" name=\"submit\" value=\"Log in\">Log in</button>\n";
 echo "<br />\n";
 echo "</div></form>\n";
 

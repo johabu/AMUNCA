@@ -5,7 +5,7 @@ include("functions.php");
 session_start();
 include("autologout.php");
 
-printheader("AMUNCA - userlist");
+printheader("AMUNCA - calendars");
 printmenu();
 
 echo "<h2>List of AMUNCA calendars</h2>";

@@ -14,6 +14,10 @@ body {
 
 #topmenu {
 	background-color: #007a3d;
+	background-image: -moz-linear-gradient(left, #007a3d 20%, #00b058);
+	background-image: -o-linear-gradient(left, #007a3d 20%, #00b058);
+	background-image: -webkit-linear-gradient(left, #007a3d 20%, #00b058);
+	background-image: linear-gradient(left, #007a3d 20%, #00b058);
 	position: absolute;
 	top: 0px;
 	left: 0px;
