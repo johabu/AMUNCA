@@ -1,23 +1,24 @@
-h1 { color: #003d7a }
-h2 { color: #003d7a }
-h3 { color: #003d7a }
+h1 { color: #00008c }
+h2 { color: #00008c }
+h3 { color: #00008c }
 a:link { text-decoration:none; font-weight:bold; color:#292b2c; }
 a:visited { text-decoration:none; font-weight:bold; color:#292b2c; }
-a:hover { text-decoration:none; font-weight:bold; color:#003d7a; }
-a:active { text-decoration:none; font-weight:bold; color:#003d7a; }
-a:focus { text-decoration:none; font-weight:bold; color:#003d7a; }
+a:hover { text-decoration:none; font-weight:bold; color:#00008c; }
+a:active { text-decoration:none; font-weight:bold; color:#00008c; }
+a:focus { text-decoration:none; font-weight:bold; color:#00008c; }
 
 body {
 	color: #333333;
-	background-color: #007a3d;
+	background-color: #007a00;
+	height: 100%;
 }
 
 #topmenu {
-	background-color: #007a3d;
-	background-image: -moz-linear-gradient(left, #007a3d 20%, #00b058);
-	background-image: -o-linear-gradient(left, #007a3d 20%, #00b058);
-	background-image: -webkit-linear-gradient(left, #007a3d 20%, #00b058);
-	background-image: linear-gradient(left, #007a3d 20%, #00b058);
+	background-color: #007a00;
+	background-image: -moz-linear-gradient(left, #007a00 20%, #72d13d);
+	background-image: -o-linear-gradient(left, #007a00 20%, #72d13d);
+	background-image: -webkit-linear-gradient(left, #007a00 20%, #72d13d);
+	background-image: linear-gradient(left, #007a00 20%, #72d13d);
 	position: absolute;
 	top: 0px;
 	left: 0px;
@@ -32,11 +33,11 @@ body {
 }
 
 #menu {
-	background-color: #007a3d;
+	background-color: #007a00;
 	position: absolute;
 	left: 0px;
 	top: 50px;
-	height: 100%;
+	max-height: 100%;
 	width: 150px;
 }
 
@@ -52,8 +53,11 @@ body {
 	position:absolute;
 	left: 150px;
 	padding-left: 10px;
+	padding-bottom: 10px;
 	top: 50px;
-	height: 100%;
+	min-height: -moz-calc(100% - 60px);
+        min-height: -webkit-calc(100% - 60px);
+        min-height: calc(100% - 60px);
 	width: -moz-calc(100% - 160px);
         width: -webkit-calc(100% - 160px);
         width: calc(100% - 160px);
@@ -84,7 +88,7 @@ body {
 }
 
 .button:focus {
-	border: 1px solid #003d7a;
+	border: 1px solid #00008c;
 	background-color: #DDDDDD;
 	background-image: linear-gradient(#EEEEEE, #DDDDDD);
 	background-repeat: repeat-x;

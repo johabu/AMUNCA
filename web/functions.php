@@ -76,7 +76,7 @@ function printadminmenu() {
 			echo "<br />&nbsp;<a href=\"../createcal.php\">Create calendars</a><br />\n";
 		}
 		echo "<br />&nbsp;<a href=\"../editcal.php\">Manage calendars</a><br />\n";
-		echo "<br />&nbsp;<a href=\"editevent.php\">Edit events</a><br />\n";
+		echo "<br />&nbsp;<a href=\"../editevent.php\">Edit events</a><br />\n";
 		if(in_array('admin', $_SESSION['rights'])) {
 			echo "<br />&nbsp;<a href=\"index.php\">Administration</a><br />\n";
 		}

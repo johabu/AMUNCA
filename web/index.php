@@ -11,7 +11,7 @@ printmenu();
 echo "<h1>Welcome to AMUNCA multi user network calendar application</h1>";
 echo "This is the main page of AMUNCA.<br /> AMUNCA (\"AMUNCA Multi User Network Calendar Application\") is an attempt ".
 "to create an easy to use calendar administration application.<br /> By ".
-"access through the web browser it is platform independent. One ".
+"access through the web browser its users are not bound to specific platforms. Another ".
 "feature of AMUNCA are multi-user calendars which allow users <br />to ".
 "harmonize their arrangements easily.<br /><br />\n";
 if(!isset($_SESSION['user_id'])) {
