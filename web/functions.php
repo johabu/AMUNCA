@@ -1,20 +1,20 @@
 <?php
 function printheader($title) {
-	echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n\"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n".
-	" <html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n<title>".$title."</title>\n".
+	echo "<!DOCTYPE html>\n".
 	"<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />\n".
 	"<link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" />\n".
+	"<title>AMUNCA calendar</title>\n".
 	"</head>\n<body>\n".
 	"<div id=\"main\">\n";
 	echo "<div id=\"topmenu\">\n".
 	"<span id=\"calendarimg\">\n".
 	"<a href=\"index.php\">\n".
-	"<img height=\"40px\" alt=\"A\" src=\"img/calendar_A.svg\" /> ".
-	"<img height=\"40px\" alt=\"M\" src=\"img/calendar_M.svg\" /> ".
-	"<img height=\"40px\" alt=\"U\" src=\"img/calendar_U.svg\" /> ".
-	"<img height=\"40px\" alt=\"N\" src=\"img/calendar_N.svg\" /> ".
-	"<img height=\"40px\" alt=\"C\" src=\"img/calendar_C.svg\" /> ".
-	"<img height=\"40px\" alt=\"A\" src=\"img/calendar_A.svg\" /> ".
+	"<img height=\"40\" alt=\"A\" src=\"img/calendar_A.svg\" /> ".
+	"<img height=\"40\" alt=\"M\" src=\"img/calendar_M.svg\" /> ".
+	"<img height=\"40\" alt=\"U\" src=\"img/calendar_U.svg\" /> ".
+	"<img height=\"40\" alt=\"N\" src=\"img/calendar_N.svg\" /> ".
+	"<img height=\"40\" alt=\"C\" src=\"img/calendar_C.svg\" /> ".
+	"<img height=\"40\" alt=\"A\" src=\"img/calendar_A.svg\" /> ".
 	"</a>\n".
 	"</span>\n";
 	if(!isset($_SESSION['user_id'])) {
@@ -57,6 +57,7 @@ function printmenu() {
 			echo "<br />&nbsp;<a href=\"createcal.php\">Create calendars</a><br />\n";
 		echo "<br />&nbsp;<a href=\"editcal.php\">Manage calendars</a><br />\n";
 		}
+		echo "<br />&nbsp;<a href=\"editevent.php\">Edit events</a><br />\n";
 		if(in_array('admin', $_SESSION['rights'])) {
 			echo "<br />&nbsp;<a href=\"admin\">Administration</a><br />\n";
 		}
@@ -75,6 +76,7 @@ function printadminmenu() {
 			echo "<br />&nbsp;<a href=\"../createcal.php\">Create calendars</a><br />\n";
 		}
 		echo "<br />&nbsp;<a href=\"../editcal.php\">Manage calendars</a><br />\n";
+		echo "<br />&nbsp;<a href=\"editevent.php\">Edit events</a><br />\n";
 		if(in_array('admin', $_SESSION['rights'])) {
 			echo "<br />&nbsp;<a href=\"index.php\">Administration</a><br />\n";
 		}

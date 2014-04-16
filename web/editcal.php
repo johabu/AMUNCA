@@ -97,9 +97,9 @@ if(isset($_POST['ID']) AND $_POST['ID'] != 0) {
 		echo "<textarea name=\"cal_desc\" cols=\"50\" rows=\"7\">".htmlentities($row['cal_desc'], ENT_QUOTES)."</textarea>\n";
 		echo "<br /><br /><br />\n";
 		echo "<button type=\"submit\" class=\"button\" name=\"submit\"".
-		"value=\"Update data\"><img src=\"img/apply.svg\" height=\"50px\"><br />Update data</button>\n";
+		"value=\"Update data\"><img src=\"img/apply.svg\" height=\"50\" alt=\"update\"><br />Update data</button>\n";
 		echo "<button type=\"submit\" class=\"button\" name=\"submit2\"".
-		"value=\"Delete calendar\"><img src=\"img/warning.svg\" height=\"50px\"><br />Delete calendar</button>\n";
+		"value=\"Delete calendar\"><img src=\"img/warning.svg\" height=\"50\" alt=\"delete\"><br />Delete calendar</button>\n";
 		echo "<input type=\"hidden\" name=\"ID\" value=\"".$_POST['ID']."\" />\n";
 		echo "<input type=\"hidden\" name=\"cal_name\" value=\"".htmlentities($row['cal_name'], ENT_QUOTES)."\" />\n";
 		echo "</div></form><br /><br />\n";

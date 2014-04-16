@@ -31,7 +31,7 @@ if(!isset($_SESSION['user_id'])) {
         echo "<br /><span style=\"font-size: small;\">Enter a description for the new calendar</span><br /><br />\n";
 	echo "<span style=\"font-size: small;\">* required fields</span><br /><br />";
 	echo "<button class=\"button\" type=\"submit\" name=\"submit\" value=\"Create calendar\">".
-	"<img src=\"img/add.svg\" height=\"50px\"><br />Create calendar</button>\n";
+	"<img src=\"img/add.svg\" height=\"50\" alt=\"create\"><br />Create calendar</button>\n";
 	echo "</div></form>\n";
 
 	if (isset($_POST['submit']) AND $_POST['submit']=='Create calendar'){
@@ -42,28 +42,28 @@ if(!isset($_SESSION['user_id'])) {
 			// if not, first error
 			$errors = "Please use a form from the calendar creation page.";
 		} else {
-		// checking all form fields if correctly filled out
-		// all usernames and email addresses to check if unique
-		$calnames = array();
-		$sql = "SELECT
-			cal_name
-			FROM
-			calendars
-		";
-		$result = mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
-		while ($row = mysql_fetch_assoc($result)){
-			$calnames[] = $row['cal_name'];
-		}
-		// is calendar name entered?
-		if (trim($_POST['cal_name'])=='')
-			$errors[]= "Please insert a calendar name.";
-		// only alphanumeric characters!
-		elseif (!preg_match('/^\w+$/', trim($_POST['cal_name'])))
-			$errors[]= "Please use only alphanumeric characters (Numbers, letters and underscore).";
-		// calendar name unique?
-		elseif (in_array(trim($_POST['cal_name']), $calname))
-			$errors[]= "This calendar does already exist. Please create a new one.";
-		}	
+			// checking all form fields if correctly filled out
+			// all usernames and email addresses to check if unique
+			$calnames = array();
+			$sql = "SELECT
+				cal_name
+				FROM
+				calendars
+			";
+			$result = mysql_query($sql) OR die("<pre>\n".$sql."</pre>\n".mysql_error());
+			while ($row = mysql_fetch_assoc($result)){
+				$calnames[] = $row['cal_name'];
+			}
+			// is calendar name entered?
+			if (trim($_POST['cal_name'])=='')
+				$errors[]= "Please insert a calendar name.";
+			// only alphanumeric characters!
+			elseif (!preg_match('/^\w+$/', trim($_POST['cal_name'])))
+				$errors[]= "Please use only alphanumeric characters (Numbers, letters and underscore).";
+			// calendar name unique?
+			elseif (in_array(trim($_POST['cal_name']), $calnames))
+				$errors[]= "This calendar does already exist. Please create a new one.";
+			}	
 		// any errors occured?
 		if(count($errors)){
 			echo "The calendar could not be created:<br />\n";

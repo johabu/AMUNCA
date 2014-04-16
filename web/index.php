@@ -34,7 +34,7 @@ if(!isset($_SESSION['user_id'])) {
 	"<img src=\"img/users.svg\" alt=\"userlist\" /><br />Look at the userlist to see which users are logged in</button></form>\n";
 	echo "<form style=\"position: relative; width: 49%; left: 50%;\" action=\"callist.php\">";
 	echo "<button style=\"width: 100%;\" type=\"submit\" class=\"button\">".
-	"<img src=\"img/view-calendar.svg\" alt=\"userlist\" /><br />Show calendars in this database</button></form>\n";
+	"<img src=\"img/view-calendar.svg\" alt=\"callist\" /><br />Show calendars in this database</button></form>\n";
 	if(in_array('admin', $_SESSION['rights'])) {
 		echo "<br /><form style=\"position: relative; width: 99%;\" action=\"admin\">";
 		echo "<button style=\"width: 100%;\" type=\"submit\" class=\"button\">".
