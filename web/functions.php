@@ -3,6 +3,9 @@ function printheader($title) {
 	echo "<!DOCTYPE html>\n".
 	"<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />\n".
 	"<link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" />\n".
+	"<link rel=\"stylesheet\" href=\"jquery/css/smoothness/jquery-ui.custom.css\" />\n".
+	"<script src=\"jquery/js/jquery.min.js\"></script>\n".
+	"<script src=\"jquery/js/jquery-ui.custom.min.js\"></script>\n".
 	"<title>AMUNCA calendar</title>\n".
 	"</head>\n<body>\n".
 	"<div id=\"main\">\n";

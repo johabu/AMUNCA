@@ -1,16 +1,17 @@
 README for AMUNCA
 ==================
-AMUNCA ("AMUNCA Multi User Network Calendar Application") is an attempt
-to create an easy to use calendar administration application. By
-access through the web browser it is platform independent. Another
-feature of AMUNCA are multi-user calendars which allow users to 
-harmonize their arrangements easily.
-
+AMUNCA ("AMUNCA Multi User Network Calendar Application") is an attempt to 
+create an easy to use calendar administration application.
+By access through the web browser its users are not bound to specific platforms.
+ Another feature of AMUNCA are multi-user calendars which allow users
+to harmonize their arrangements easily.
 Dependencies
 -------------
 A webserver capable of PHP and MySQL.
 It is highly recommended to use SSL with this application!
 Otherwise, passwords could be easily sniffed out!
+
+AMUNCA uses jQuery UI to create a well-styled and easy to use user interface.
 
 Platforms
 ----------
@@ -24,13 +25,18 @@ in your php.ini
 Installing
 -----------
 1. To set up the AMUNCA login environment as well as the web gui, copy
-the directory "frontend" to your webserver. You can rename it if you
+the directory "web" to your webserver. You can rename it if you
 want.
-2. Open "mysql.php" in a text editor and insert correct login information
+2. In the directory create a new one called "jquery".
+3. Download jQuery UI (<http://jqueryui.com>), best with the theme called
+"smoothness" which looks well together with AMUNCA.
+4. Copy the contents of your downloaded jqueryui-folder into the newly created
+"jquery".
+5. Open "mysql.php" in a text editor and insert correct login information
 to your MySQL database.
-3. Open /path/to/frontend/setup.php in a webbrowser and check if everything
+6. Open /path/to/frontend/setup.php in a webbrowser and check if everything
 has worked.
-4. Once setup has finished successfully, you can log in as default user
+7. Once setup has finished successfully, you can log in as default user
  "admin" with password "admin".
 
 
